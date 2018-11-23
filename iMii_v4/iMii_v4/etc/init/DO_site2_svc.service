@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI iMii_v4 server instance
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/uwsgi --ini-paste /webapps/iMii_v4/iMii_v4/production.ini
+# Requires systemd version 211 or newer
+RuntimeDirectory=/webapps/iMii_v4/iMii_v4/
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
