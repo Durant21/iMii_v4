@@ -1,0 +1,9 @@
+<div metal:use-macro="load: splash_layout.pt">
+    <div metal:fill-slot="content">
+
+        <div class="content">
+            splash --------------
+        </div>
+
+    </div>
+</div>
