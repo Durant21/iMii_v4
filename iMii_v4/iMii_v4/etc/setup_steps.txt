@@ -38,22 +38,22 @@ git config --global credential.helper 'cache --timeout=360000'
 git clone https://github.com/Durant21/iMii_v4.git
 
 
-cd /webapps/DO_site2/DO_site2/
+cd /webapps/iMii_v4/iMii_v4/
 python3 setup.py develop
 
 
-cp /webapps/DO_site2/DO_site2/DO_site2/etc/init/DO_site2_svc.service /etc/systemd/system/
+cp /webapps/iMii_v4/iMii_v4/iMii_v4/etc/init/DO_site2_svc.service /etc/systemd/system/
 
-systemctl start DO_site2_svc
-systemctl enable DO_site2_svc
-systemctl status DO_site2_svc
+systemctl start iMii_v4_svc
+systemctl enable iMii_v4_svc
+systemctl status iMii_v4_svc
 
 
 # CAREFUL HERE. If you are using default, maybe skip this
 rm /etc/nginx/sites-enabled/default
 
-cp /webapps/DO_site2/DO_site2/DO_site2/etc/nginx/sites-available/DO_site2_service.nginx /etc/nginx/sites-available/
-cp /webapps/DO_site2/DO_site2/DO_site2/etc/nginx/sites-available/DO_site2_service.nginx /etc/nginx/sites-enabled/
+cp /webapps/iMii_v4/iMii_v4/iMii_v4/etc/nginx/sites-available/iMii_v4_service.nginx /etc/nginx/sites-available/
+cp /webapps/iMii_v4/iMii_v4/iMii_v4/etc/nginx/sites-available/iMii_v4_service.nginx /etc/nginx/sites-enabled/
 update-rc.d nginx enable
 
 service nginx start
