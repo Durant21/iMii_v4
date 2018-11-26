@@ -1,12 +1,11 @@
 #!/Users/dantefernandez/Projects/iMii/iMii_v4/iMii_v4/.env/bin/python
-# EASY-INSTALL-ENTRY-SCRIPT: 'pytest','console_scripts','py.test'
-__requires__ = 'pytest'
+
+# -*- coding: utf-8 -*-
 import re
 import sys
-from pkg_resources import load_entry_point
+
+from pytest import main
 
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(
-        load_entry_point('pytest', 'console_scripts', 'py.test')()
-    )
+    sys.exit(main())
