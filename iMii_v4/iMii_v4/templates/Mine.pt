@@ -1,0 +1,7 @@
+<div metal:use-macro="load: Mine_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            Mine page ----------------------------
+        </div>
+    </div>
+</div>

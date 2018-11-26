@@ -1,0 +1,7 @@
+<div metal:use-macro="load: Plan_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            Plan page ----------------------------
+        </div>
+    </div>
+</div>

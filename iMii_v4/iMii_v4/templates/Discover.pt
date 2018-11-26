@@ -1,0 +1,7 @@
+<div metal:use-macro="load: Discover_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            Discover page ----------------------------
+        </div>
+    </div>
+</div>

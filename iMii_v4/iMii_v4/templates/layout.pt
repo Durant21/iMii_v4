@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="scripts/common3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .stickyfooter {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+            height: 100px;
+           width: 100%;
+           background-color: dimgray;
+           color: white;
+           text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+        .mm {
+            /*background-image: url(getUrlBase() + "images/trees1.jpg");*/
+            background-image: url("/images/trees1.jpg");
+
+            }
+
+        .q {
+            background-color: lightgray;
+            color:dodgerblue;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="jumbotron text-center mm">
+  <!--?<h1 class="q">Proto21</h1>-->
+    <!--?<p style="color:deepskyblue; font-family: Helvetica; font-size:70px;">Proto21</p>-->
+    <!--?<p style="color:deepskyblue; font-family: Helvetica; font-size:70px;">PROTO21</p>-->
+
+    <!--?<p style="color:deepskyblue; font-family: Verdana; font-size:70px;">Proto21</p>-->
+
+    <!--?<p style="color:deepskyblue; font-family: Arial Black; font-size:70px;">Proto21</p>-->
+<!--?img_url = getUrlBase() + "images/" + jsonObj[i]['img1'];-->
+    <p style="color:deepskyblue; font-family: Impact; font-size:70px;">Proto21</p>
+  <!--?<p>Resize this responsive page to see the effect!</p>-->
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>iMii</h3>
+      <p>This is a prototype <a href="http://www.respec.com" target="_blank">we</a> built for the GirlsInTheClassroom.org program.</p>
+
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='iMii';">
+    </div>
+    <!--?<div class="col-sm-4">-->
+      <!--?<h3>GIS</h3>-->
+      <!--?<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>-->
+      <!--?<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>-->
+        <!--?<input type="button" class="btn btn-info" value="GIS" onclick="location.href='gis';">-->
+    <!--?</div>-->
+    <!--?<div class="col-sm-4">-->
+      <!--?<h3>Blog</h3>-->
+      <!--?<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>-->
+      <!--?<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>-->
+        <!--?<input type="button" class="btn btn-info" value="Blog" onclick="location.href='blog';">-->
+    <!--?</div>-->
+    <div class="col-sm-4">
+        <h3>Python Web Development (basic)</h3>
+        <p>This site is built using opensource technology.  We'll build a complete site and deploy it to the cloud.</p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='pythonwebdevelopment';">
+    </div>
+
+    <div class="col-sm-4">
+        <h3>Python Web Development (advanced) <span style="font-weight:bold; color:dodgerblue;  font-size: smaller">Part 1</span></h3>
+        <p>
+            We'll use the site built in Python Web Development (basic) to build RESTful services.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='restfulservices';">
+    </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (advanced) <span style="font-weight:bold; color:dodgerblue; font-size: smaller">Part 2</span></h3>
+        <p>We'll build on the work completed in Part 1 by attaching a database to our RESTful services.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='sqliteDB';">
+      </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (testing)</h3>
+        <p>We'll use the site built in Python Web Development (basic) to build testing into our web application.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='pytest';">
+      </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (logging)</h3>
+        <p>We'll use the site built in Python Web Development (basic) to add logging to our web application.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='Logbook';">
+      </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (authentication) <span style="font-weight:bold; color:dodgerblue; font-size: smaller">Part 1</span></h3>
+        <p>We'll use the site built in Python Web Development (basic) to add authentication to our web application.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='Authentication';">
+      </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (authentication) <span style="font-weight:bold; color:dodgerblue; font-size: smaller">Part 2</span></h3>
+        <p>We'll use the site built in part 1 of the authentication series to secure an API endpoint within our web application.
+
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='SecureEndpoint';">
+      </div>
+
+      <div class="col-sm-4">
+        <h3>Python Web Development (authentication) <span style="font-weight:bold; color:dodgerblue; font-size: smaller">Part 3</span></h3>
+        <p>We'll look at User registration and authentication using cookies.
+        </p>
+        <input type="button" class="btn btn-info" value="Open" onclick="location.href='RegisterUser';">
+      </div>
+
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

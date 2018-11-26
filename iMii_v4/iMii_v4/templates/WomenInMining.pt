@@ -1,0 +1,7 @@
+<div metal:use-macro="load: WomenInMining_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            People page ----------------------------
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div metal:use-macro="load: blog_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            blog page ---------------------
+        </div>
+    </div>
+</div>

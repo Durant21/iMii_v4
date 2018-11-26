@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+
+      }
+
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+            /*position: fixed;*/
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-color: dimgray;
+            color: white;
+            text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+    .leftpanelphoto {
+
+            }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--?<a class="navbar-brand" href="/">Logo</a>-->
+        <a href="/" >
+                     <img src="/images/Proto21_logo.jpg" alt="image" style="max-width:50%;height:auto;">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--?<ul class="nav navbar-nav">-->
+        <!--?<li class="active"><a href="#">Home</a></li>-->
+        <!--?<li><a href="#">About</a></li>-->
+        <!--?<li><a href="#">Projects</a></li>-->
+        <!--?<li><a href="#">Contact</a></li>-->
+      <!--?</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/images/Proto21_logo.jpg">
+            <!--?<span class="glyphicon glyphicon-log-in"></span> -->
+            Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+          <h1>Python Web Development <span style="font-weight:bold; color:dodgerblue;  font-size: smaller">Part 1</span></h1>
+          <p>Below are the steps required for building a functional website with a RESTful API.</p>
+          <hr>
+        What you will need: <br>
+        <ul style="list-style-type:none">
+          <li>Your favorite text editor.</li>
+          <li><a href="https://www.getpostman.com/">Postman</a> - We'll use Postman to test our new API endpoints.</li>
+        </ul>
+
+        <br>
+        <h3>Step 1: Clone the git project</h3>
+
+        Git clone https://github.com/Durant21/DO_site2.git<br>
+
+        change directory into the resulting project<br>
+        <code>
+            $ cd DO_site2<br>
+        </code>
+
+        Create a virtual env <br>
+        <code>
+            $ python3 -m venv --copies .env
+        </code>
+        <br>
+        Activate the .env <br>
+        <code>
+            $ . .env/bin/activate
+        </code>
+        <br>
+        Verify the location of the python library<br>
+        <code>
+        $ which python<br>
+        /Users/dantefernandez/Projects/PythonScripts/Proto21_tests/DO_site2/.env/bin/python<br>
+        </code>
+
+        <br>
+        Complete the installation of the Pyramid framework<br>
+        <code>
+        $ python setup.py develop<br>
+        </code>
+
+        <br>
+        Run the application<br>
+        <code>
+            $ pserve development.ini<br>
+            Starting server in PID 26688.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+
+        </code>
+        <br><br>
+
+        <h3>Step 2: Add code to create a RESTful API service</h3>
+
+        Create a /views directory.<br>
+        Add a blank __init__.py to /views directory.<br>
+        <br>
+        Add a route configuration to the Main() method in __init__.py.<br>
+        config.add_route('people_api','/api/people')<br>
+
+        <br><br>
+        Create a /data directory.<br>
+        Add a csv file called people.csv to the directory.<br>
+        Add the following content:<br>
+
+        <!--?https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_code_htmlhigh-->
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>people.csv</h4>
+          <div class="w3-code htmlHigh notranslate">
+            fname,lname,title,position,company,email,url1,url2,address,city,state,date_edited<br>
+            Dan,Gonzales,title,position,company,email,url1,url2,4950Mainst,Anytown,Tx,2016-04-0601:45:10<br>
+            Sue,Wiliams,title,position,company,email,url1,url2,11011stst,Anytown,Tx,2016-04-0601:45:10<br>
+            Ben,Johnson,title,position,company,email,url1,url2,12Bakerst,Anytown,Tx,2016-04-0601:45:10<br>
+          </div>
+        </div>
+
+        <br><br>
+        Add a blank repository_people.py to the /data directory.<br>
+        Add the following content:<br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>repository_people.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                importcsv<br>
+                importos<br>
+                importuuid<br>
+                <br><br>
+                classRepository_people:<br>
+                __people_data={}<br>
+
+                @classmethod<br>
+                Def all_people(cls,limit=None):<br>
+                cls.__load_data()<br>
+
+                people=list(cls.__people_data.values())<br>
+                iflimit:<br>
+                people=people[:limit]<br>
+
+                returnpeople<br>
+
+                @classmethod<br>
+                def__load_data(cls):<br>
+                ifcls.__people_data:<br>
+                return<br>
+                <br>
+                file=os.path.join(<br>
+                os.path.dirname(__file__),<br>
+                'people.csv'<br>
+                )<br>
+                <br>
+                withopen(file,'r',encoding='utf-8')asfin:<br>
+                #brand,name,price,year,damage,last_seen<br>
+                reader=csv.DictReader(fin)<br>
+                forrowinreader:<br>
+                key=str(uuid.uuid4())<br>
+                row['id']=key<br>
+                cls.__people_data[key]=row<br>
+                <br>
+          </div>
+        </div>
+
+
+        <br><br>
+        Create a /api directory<br>
+        Add a blank __init__.py to the /api directory.<br>
+        Add a blank people_api.py file to the directory.<br>
+        Add the following content:<br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>people_api.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                frompyramid.viewimportview_config<br>
+
+                fromDO_site2.data.repository_peopleimportRepository_people<br>
+                <br><br>
+                @view_config(route_name='people_api',<br>
+                request_method='GET',<br>
+                accept='application/json',<br>
+                renderer='json')<br>
+                Def all_people(_):<br>
+
+                people=Repository_people.all_people(limit=25)<br>
+                returnpeople        <br>
+                <br>
+          </div>
+        </div>
+
+        <br>
+
+        Add a python file called home_page.py to the /views directory.<br>
+        Add the follow content:<br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>home_page.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+            frompyramid.viewimportview_config<br>
+            <br>
+
+            @view_config(route_name='home',renderer='DO_site2:templates/mytemplate.pt')<br>
+            defmy_view(request):<br>
+            return{'project':'Home'}     <br>
+          </div>
+        </div>
+
+        <br>
+
+        Once all folders and files are added, the project structure will look like this
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/tree3a.jpg" alt="Picture Description" style="width:80%">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <img src="/images/tree3b.jpg" alt="Picture Description" style="width:80%">
+                </th>
+            </tr>
+        </table>
+
+        <br>
+        From the cmd line, run the app.<br>
+        <code>
+            $ pserve development.ini<br>
+            Starting server in PID 26688.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+        </code>
+<br><br>
+With the application running, open Postman and create a GET call using the URL <font color="blue"> http://localhost:6543/api/people</font><br>
+When you click Send, the results should be as shown, below.<br>
+
+        <div>
+            <img src="/images/postman_get_people1.jpg" alt="Picture Description" style="width:80%">
+        </div>
+
+        <br><br>
+        The bottom panel should reflect the information you added to the people.csv file in the above step. <br>
+
+        <br><br>
+
+
+
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div metal:use-macro="load: People_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            People page ----------------------------
+        </div>
+    </div>
+</div>

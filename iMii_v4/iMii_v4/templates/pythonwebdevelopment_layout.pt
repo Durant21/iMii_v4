@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+
+      }
+
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+            /*position: fixed;*/
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-color: dimgray;
+            color: white;
+            text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+    .leftpanelphoto {
+
+            }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--?<a class="navbar-brand" href="/">Logo</a>-->
+        <a href="/" >
+                     <img src="/images/Proto21_logo.jpg" alt="image" style="max-width:50%;height:auto;">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--?<ul class="nav navbar-nav">-->
+        <!--?<li class="active"><a href="#">Home</a></li>-->
+        <!--?<li><a href="#">About</a></li>-->
+        <!--?<li><a href="#">Projects</a></li>-->
+        <!--?<li><a href="#">Contact</a></li>-->
+      <!--?</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/images/Proto21_logo.jpg">
+            <!--?<span class="glyphicon glyphicon-log-in"></span> -->
+            Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+          <h1>Python Web Development</h1>
+          <p>Below are the steps required for building a functional website and deploying it to the cloud.</p>
+          <hr>
+
+          <hr>
+        What you will need: <br>
+        <ul style="list-style-type:none">
+          <li>Your favorite text editor.</li>
+          <li>An account at <a href="https://github.com/">Github</a></li>
+            <li>An account at <a href="https://www.digitalocean.com/">DigitalOcean</a></li>
+        </ul>
+
+        <br>
+
+        <br>
+        <h3>Step 1: Create a new python project</h3>
+
+        <br>
+        We'll use <a href="https://cookiecutter.readthedocs.io/en/latest/" style="font-weight: bold; color:blue">cookiecutter</a> to create our basic project scaffolding
+        <br>
+        <code>
+            $ cookiecutter https://github.com/Pylons/pyramid-cookiecutter-starter
+        </code>
+        <br><br>
+        Cookiecutter will ask you to name your project and your repo.  For this prototype, we'll use <i>DO_site2</i>.<br>
+        You will also select a templating language.  We'll select <i>Chameleon</i>.
+
+
+        <br><br>
+        Next, we will create and activate our python <a href="https://docs.python.org/3/tutorial/venv.html"  style="font-weight: bold; color:blue">virtual environment</a>.<br>
+        We'll specify python3.
+        <code>
+            <br>
+            # change directory into the new project<br>
+            $ cd DO_site2<br><br>
+
+            # create your virtual environment<br>
+            $ python3 -m venv --copies .env<br>
+            <br>
+            # Activate the .env <br>
+            $ . .env/bin/activate<br>
+            (.env) DO_site2 $
+            <br>
+
+        </code>
+        <br>
+        As a quick test, we'll verify the location of our virtual environment.
+        <br>
+        Note it is within our project file structure and not in the default python location.
+        <code>
+            <br>
+            $ which python<br>
+            /Users/dantefernandez/Projects/PythonScripts/DO_site2/DO_site2/.env/bin/python<br>
+
+        </code>
+
+        <br><br>
+        Next, we will download remaining requirements by running the setup.py in development-mode.
+        <code>
+            <br>
+            $ python setup.py develop
+            <br>
+        </code>
+        <br>
+        If all went well, we can launch the website.<br>
+        Call <i>pserve</i> to run the site, locally.<br>
+
+        <code>
+            $ pserve development.ini<br>
+            Starting server in PID 18400.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+        </code>
+        <br><br>
+        Opening a browser to http://localhost:6543 will display the default Pyramid landing page.
+        <br><br>
+        <div>
+
+            <img src="/images/initialWebpage.jpg" alt="Picture Description" style="width:50%">
+
+        </div>
+        <br><br>
+        In the next step, we'll personalize this page.<br>
+        <br><br>
+
+
+
+        <h3>Step 2: Edit the landing page</h3>
+
+        <br>
+        As a quick demo of the ease of UI modification, we are going to modify the default Pyramid landing page.
+        <br><br>
+        Note the default project folder structure, below.  The landing page is /templates/layout.pt
+        <div>
+
+            <img src="/images/tree1.jpg" alt="Picture Description" style="width:50%">
+
+        </div>
+<br><br>
+
+        <br>
+        Replace the default HTML within the page layout.pt with the following sample:
+        <br>
+        <!--?https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_code_htmlhigh-->
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>HTML Example</h4>
+          <div class="w3-code htmlHigh notranslate">
+            &lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>
+            &lt;title&gt;myProject&lt;/title&gt;<br>
+            &lt;body&gt;<br><br>
+            &lt;h1&gt;Welcome to your new website&lt;/h1&gt;<br>
+            &lt;p&gt;This is a paragraph.&lt;/p&gt;<br><br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+          </div>
+        </div>
+        <br>
+        <br>
+
+
+
+        Refreshing the site reveals the proposed changes.
+        <br><br>
+<div>
+
+    <img src="/images/newWebpage.jpg" alt="Picture Description" style="width:50%">
+
+</div>
+
+        <br><br>
+
+        In our next step we'll prepare to deploy our site to the cloud by creating a <a href="https://git-scm.com/" style="font-weight: bold; color:blue">Git</a> repository.
+
+        <br><br>
+
+<h3>Step 3: Create a Git repo</h3>
+        <br><br>
+
+        Note the working directory (folder containing the development.ini file)<br>
+        /Users/dantefernandez/Projects/PythonScripts/DO_site2/DO_site2<br>
+
+        From this location, move one directory up and create a Git repo<br>
+        <code>
+            # from the working directory, move one directory up<br>
+            $ pwd
+            /Users/dantefernandez/Projects/PythonScripts/DO_site2/DO_site2<br>
+
+            <br>
+            (.env) $ cd ..<br>
+            (.env) $ git init<br>
+            (.env) $ ls -la<br>
+                drwxr-xr-x   5 dantefernandez  staff   170 Aug 17 20:29 .<br>
+                drwxr-xr-x  36 dantefernandez  staff  1224 Aug 14 22:10 ..<br>
+                -rw-r--r--@  1 dantefernandez  staff  6148 Aug 17 19:31 .DS_Store<br>
+                drwxr-xr-x   9 dantefernandez  staff   306 Aug 17 20:29 .git<br>
+                drwxr-xr-x  15 dantefernandez  staff   510 Aug 17 19:31 DO_site2<br>
+
+
+
+        </code>
+
+        <br><br>
+
+        Create a master repository on Github.  From here, we'll deploy our new site to the cloud.
+
+        <br><br>
+
+
+        <code>
+            # set the github repo as the master<br>
+            $ git remote add origin https://github.com/Durant21/DO_site2.git<br>
+            <br>
+            # push your site up to Github<br>
+            $ git push -u origin master<br>
+            <br>
+
+        </code>
+
+        <br><br>
+
+        <h3>Step 4: Prepare the project for deployment</h3>
+
+        Below, we will add the webserver configuration files needed for serving our website.<br>
+        The needed files can be copied from the Github repo for this prototype.
+        <br><br>
+
+        <code>
+            # create the following directories<br>
+            $ mkdir etc<br>
+            $ mkdir /etc/init<br>
+            $ mkdir /etc/nginx<br>
+            $ mkdir /etc/nginx/sites-available<br>
+
+        </code>
+
+        <br><br>
+
+        Copy these files from the Github into your project:<br>
+        /etc/init/DO_site2_svc.service<br>
+        /etc/nginx/sites-available/DO_site2_service.nginx<br>
+        /etc/setup_steps.txt<br>
+
+        <br><br>
+        Your resulting folder structure should look like this:<br><br>
+
+        <div>
+            <img src="/images/tree2.jpg" alt="Picture Description" style="width:50%">
+        </div>
+
+        <br><br>
+
+        <h3>Step 5: Deploy your app to the cloud</h3>
+
+        Below, we will go thru the steps for provisioning a VPS (virtual private server) that will host our new website. <br>
+
+        <br><br>
+
+        Go to <a href="www.digitalocean.com" style="font-weight: bold; color:blue">DigitalOcean</a> and create a Droplet.
+        Select the smallest (least expensive) configuration available, since this is an exercise. <br>
+        ubuntu 16.x<br>
+        1 GB, 1 vCPU<br>
+        <br>
+        Secure it with an <a href="https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/" style="color:blue">ssh</a> file for easy-access from your computer.<br>
+
+        <br><br>
+        Once you're logged-in to your new droplet, there are a few updates and installs we'll want to perform:
+        <br><br>
+        <code>
+            <br>
+            # Install any new or missing security patches<br>
+            $ apt-get update<br>
+            <br>
+            # Check if any packages need upgrading<br>
+            $ apt-get upgrade -y<br>
+        </code>
+        <br><br>
+        Reboot the server and ssh back in
+        <br>
+        <code>
+            # <br>
+            $ reboot<br>
+            <br>
+            # (optional)<br>
+            $ apt install fail2ban <br>
+
+            <br><br>
+            # install a few things we need <br>
+            $ apt-get install --no-install-recommends -y -q build-essential <br>
+            $ apt-get install --no-install-recommends -y -q git python3 python3-dev wget unzip nload<br>
+        </code>
+            <br><br>
+        We'll use <a href="https://www.nginx.com/">NGINX</a> as our webserver
+        <br><br>
+        <code>
+            # prepare to install the webserver NGINX<br>
+            $ add-apt-repository ppa:nginx/development<br>
+            $ apt-get update <br>
+            $ apt install python-software-properties<br>
+            <br>
+            # install the NGINX webserver<br>
+            $ apt install nginx<br>
+            # verify NGINX install by checking the version<br>
+            $ nginx -v<br>
+            $ uwsgi --version<br>
+            <br><br>
+        </code>
+            <br><br>
+        We'll need a web server gateway interface (WSGI) to fascilitate scaling the app.<br>
+        <a href="https://uwsgi-docs.readthedocs.io/en/latest/">uWSGI</a> is a good choice.
+        <br><br>
+        <code>
+            # install micro WSGI<br>
+            $ apt install python3-pip<br>
+            $ pip3 install uwsgi<br>
+            <br><br>
+
+        </code>
+            <br><br>
+        Install <a href="https://nicolargo.github.io/glances/">glances</a>  to help manage and view the server
+
+        <br><br>
+        <code>
+
+
+            $ pip3 install glances<br><br>
+
+            <div>
+                <img src="/images/glances.jpg" alt="glances" style="width:70%">
+            </div>
+
+        </code>
+            <br><br>
+        Create the directories we'll need for Logging
+        <br><br>
+        <code>
+
+            $ mkdir /webapps<br>
+            $ mkdir /webapps/logs<br>
+            $ mkdir /webapps/logs/DO_site2<br>
+            $ mkdir /webapps/logs/DO_site2/app_log<br>
+
+        </code>
+            <br><br>
+         For git, set the cache so we don't have to type in user/password each time<br>
+        <br>
+        <code>
+
+            $ git config --global credential.helper cache<br>
+            $ git config --global credential.helper 'cache --timeout=360000'<br>
+
+        </code>
+            <br><br>
+         Verify you are in the /webapps folder and git-clone the test app created above<br>
+        <br>
+        <code>
+
+            $ cd /webapps<br>
+            $ git clone https://github.com/Durant21/DO_site2.git<br>
+
+        </code>
+            <br><br>
+         Go to the project root and run the setup.py routine<br>
+        <br>
+        <code>
+
+            $ cd /webapps/DO_site2/DO_site2<br>
+            $ python3 setup.py develop<br>
+        </code>
+            <br><br>
+         Most components should now be installed.<br>
+        Test by calling pserve<br>
+        <br>
+        <code>
+
+            $ pserve development.ini<br>
+            # App should now be running at localhost<br>
+        </code>
+            <br><br>
+         In a new terminal, ssh in and install "httpie"<br>
+        <br>
+        <code>
+
+            $ pip3 install httpie<br>
+            # Test the app<br>
+            $ http localhost:6543<br>
+            # Should return the html of the landing page<br>
+        </code>
+            <br><br>
+            Now that we know the working directory, we can set the uWSGI config settings in production.ini<br>
+            <br>
+            Verify the server_name in /etc/nginx/sites-available/DO_site2_service.nginx<br>
+            It should be the IP given to your new VPS by DigitalOcean.<br>
+            <br>
+            Upload your changes to Git and pull those changes down to the server.<br>
+            <br>
+            Copy the .service config file to the /etc/systemd/system/ folder<br>
+        <br><br>
+        <code>
+
+            $ cp /webapps/DO_site2/DO_site2/DO_site2/etc/init/DO_site2_svc.service /etc/systemd/system/<br>
+        </code>
+            <br>
+         Start the new instance of our webservice<br>
+
+        <code>
+
+            <br>
+            $ systemctl start DO_site2_svc<br>
+            $ systemctl enable DO_site2_svc<br>
+            $ systemctl status DO_site2_svc<br>
+        </code>
+            <br><br>
+         By default, NGINX installs it's own website landing page.  We'll replace it with our own.
+
+        <br><br>
+        <code>
+            $ rm /etc/nginx/sites-enabled/default<br>
+        </code>
+            <br>
+        Copy our website .nginx config files to the NGINX <i>sites-available</i> and <i>sites-enabled</i> folders
+        <br>
+
+        <code>
+            $ cp /webapps/DO_site2/DO_site2/DO_site2/etc/nginx/sites-available/DO_site2_service.nginx /etc/nginx/sites-available/<br>
+            $ cp /webapps/DO_site2/DO_site2/DO_site2/etc/nginx/sites-available/DO_site2_service.nginx /etc/nginx/sites-enabled/<br>
+        </code>
+            <br><br>
+         Make sure NGINX and WSGI start on boot
+        <br>
+        <code>
+
+            $ update-rc.d nginx enable<br>
+        </code>
+            <br><br>
+             Refresh NGINX
+        <br>
+        <code>
+
+            $ service nginx start<br>
+            $ service nginx restart<br>
+            <br><br>
+        </code>
+
+        Your site should now be visible to the outside world.<br>
+
+        Open a browser to the ip address provided by DigitalOcean<br>
+
+
+
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

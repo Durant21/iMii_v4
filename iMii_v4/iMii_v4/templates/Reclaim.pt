@@ -1,0 +1,7 @@
+<div metal:use-macro="load: Reclaim_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            Reclaim page ----------------------------
+        </div>
+    </div>
+</div>

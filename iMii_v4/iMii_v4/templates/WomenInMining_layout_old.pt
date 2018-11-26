@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Women In Mining</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/aa.css">
+    <script src="scripts/common3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .btn {
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+      .button {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .img1 {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .navbtnuuu {
+      font-size : 20px;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+           /*position: fixed;*/
+           left: 0;
+           bottom: 0;
+            height: 100px;
+           width: 100%;
+           background-color: dimgray;
+           color: white;
+           text-align: center;
+        }
+
+        .div1a {
+        width: 40%;
+        background-color: white; display: inline-block
+        }
+
+        .div1b {
+        width: 50%;
+        display: inline-block
+        }
+
+        .div2 {
+        width: 100%;background-color: lightblue;
+        }
+
+        .div2a {
+        width: 90%;
+        background-color: white; display: inline-block
+        }
+
+        .div2b {
+            width: 5%;
+            display: inline-block
+        }
+        .div3a {
+            display: inline-block
+        }
+
+        .div3b {
+            display: inline-block
+        }
+
+        .row1a {
+            background-color: white;
+            width: 100%;
+        }
+
+      /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(50,50,50); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .control-width {
+            width: 80%;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+  </style>
+</head>
+<body onload="populateTablesEvents()">
+
+   <div id="includedHeader"></div>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+              <!--?<p><a href="#">Link</a></p>-->
+              <!--?<p><a href="#">Link</a></p>-->
+              <!--?<p><a href="#">Link</a></p>-->
+            </div>
+            <div class="col-sm-8 text-left">
+          <h1>Women In Mining</h1>
+          <!--?<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+          <hr>
+
+            ﻿            <!-- Trigger/Open The Modal -->
+                <!--?<button id="myBtn" onclick="OpenForAdd()">..r.</button>-->
+
+                <div id="div2" name="div2" class="col-sm-12 text-right" style="background-color: white; align-content:right">
+                    <button id="myBtnOpenAdd" hidden="true" title="Create a new Event" onclick="OpenForAdd()">+</button>
+                </div>
+                <div id="div1" name="div1" style="background-color: green">
+
+                    <!--?<input type="button" value="Generate a div." onclick="populateTablesEvents()">-->
+                </div>
+
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <!--?<p>Some text in the Modal..</p>-->
+
+                      <div class="container">
+                          <h2 id="lblEventModal">Edit item</h2>
+                          <!--?<form>-->
+
+                                <div class="form-group">
+                                  <label for="id"></label>
+                                  <input type="text" class="form-control control-width" id="id" placeholder="id">
+                                </div>
+                                <div class="form-group">
+                                  <label for="headline">headline:</label>
+                                  <input type="text" class="form-control control-width" id="headline" placeholder="Enter headline">
+                                </div>
+                                <div class="form-group">
+                                  <label for="event_date">Date:</label>
+                                  <input type="date" class="form-control control-width" id="event_date" placeholder="Enter Date">
+                                </div>
+                                  <div class="form-group">
+                                  <label for="location">Location:</label>
+                                  <input type="text" class="form-control control-width" id="location" placeholder="Enter Location">
+                                </div>
+                                  <div class="form-group">
+                                  <label for="content">Content:</label>
+                                  <input type="text" class="form-control control-width" id="description" placeholder="Enter Content">
+                                </div>
+                                  <div class="form-group">
+                                  <label for="content">URL:</label>
+                                  <input type="text" class="form-control control-width" id="url" placeholder="Enter URL Address">
+                                </div>
+                                <!--?<div class="checkbox">-->
+                                  <!--?<label><input type="checkbox"> Remember me</label>-->
+                                <!--?</div>-->
+                          <button id="btnWrite" type="button" class="btn btn-default" onclick="UpdateNewsAndEvents()">Update</button>
+                                <!--?<button type="submit" class="btn btn-default">Submit</button>-->
+                          <!--?</form>-->
+                      </div>
+                  </div>
+
+                </div>
+                <div id="imgModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" onclick="closeImgModal()">&times;</span>
+                <!--?<p>Some text in the Modal..</p>-->
+
+                  <div class="container">
+                      <h2 id="lblImgModal">Edit image</h2>
+
+                        <!--?<div class="col-sm-8 text-left">-->
+                          <h3>File Upload</h3>
+                            <form action="/store_img2_view" method="post" accept-charset="utf-8"
+                                  enctype="multipart/form-data">
+
+                                <input type="text" class="form-control control-width" style="display:none" id="img_id" name="img_id" placeholder="id">
+
+                                <label for="img1">image file</label>
+                                <input id="img1" name="img1" type="file" value="" />
+                                <br>
+                                <input type="submit" value="submit" class="btn btn-default" />
+                            </form>
+
+
+                        <!--?</div>-->
+                  </div>
+              </div>
+
+            </div>
+
+
+
+            <!--?START EVENT PANELS-->
+            <!--?<div class="col-sm-4 col-xs-12">-->
+                <!--?<div class="panel panel-default text-center">-->
+                    <!--?<div class="panel-heading">-->
+                        <!--?<h2><i>Event name</i></h2>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<img src="http://gis.podassoc.comm/iMii_images/stem1.png" alt="image" style="width:100%">-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<label><i>date</i></label>-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-body">-->
+                        <!--?<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-footer">-->
+                      <!--?<button class="btn btn-lg">READ MORE</button>-->
+                    <!--?</div>-->
+                <!--?</div>-->
+            <!--?</div>-->
+            <!--?<div class="col-sm-4 col-xs-12">-->
+                <!--?<div class="panel panel-default text-center">-->
+                    <!--?<div class="panel-heading">-->
+                        <!--?<h2><i>Event name</i></h2>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<img src="http://gis.podassoc.com/iMii_images/stem2.png" alt="image" style="width:100%">-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<label><i>date</i></label>-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-body">-->
+                        <!--?<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-footer">-->
+                      <!--?<button class="btn btn-lg">READ MORE</button>-->
+                    <!--?</div>-->
+                <!--?</div>-->
+            <!--?</div>-->
+            <!--?<div class="col-sm-4 col-xs-12">-->
+                <!--?<div class="panel panel-default text-center">-->
+                    <!--?<div class="panel-heading">-->
+                        <!--?<h2><i>Event name</i></h2>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<img src="http://gis.podassoc.com/iMii_images/stem3.png" alt="image" style="width:100%">-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="column">-->
+                      <!--?<label><i>date</i></label>-->
+                        <!--?<br><br>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-body">-->
+                        <!--?<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>-->
+                    <!--?</div>-->
+                    <!--?<div class="panel-footer">-->
+                      <!--?<button class="btn btn-lg">READ MORE</button>-->
+                    <!--?</div>-->
+                <!--?</div>-->
+            <!--?</div>-->
+
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br>
+
+            <!--?<div class="col-sm-2 sidenav">-->
+            <!--?</div>-->
+        </div>
+        </div>
+    </div>
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+    // When the user clicks the button, open the modal
+    // btn.onclick = function() {
+    //     modal.style.display = "block";
+    // }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+<div id="includedFooter"></div>
+
+   <script>
+        function closeImgModal() {
+            var imgModal = document.getElementById('imgModal');
+            imgModal.style.display = "none";
+        }
+
+   </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#includedHeader").load("iMiiMasterHeader1");
+        });
+
+        $(document).ready(function(){
+            $("#includedFooter").load("iMiiMasterFooter1");
+        });
+
+        function populateTablesEvents() {
+                //alert('here');
+                // var grid = jQuery("#Grid_Events").jqGrid({
+                //     datatype: "json",
+                //     contentType: "application/json",
+                //     width: 1200,
+                //     scrollerbar: true,
+                //     height: 500,
+                //     colNames: ['fname', 'lname'],
+                //     colModel: [
+                //             { name: 'fname', index: 'fname', width: 40 },
+                //             { name: 'lname', index: 'lname', width: 40 }
+                //
+                //     ],
+                //     multiselect: false,
+                //     caption: "TSGrid_Events"
+                // });
+
+                //alert(getUrlBase() + "api/Events");
+
+               // validate the user
+                var q = getParams1(window.location.href);
+                if (q) {
+                    userid = q['k'];
+                } else {
+                    userid = "";
+                }
+                //alert('userid: ' + userid);
+
+                if (userid) {
+                    var myBtnOpenAdd = document.getElementById('myBtnOpenAdd');
+                    myBtnOpenAdd.style.display = "block";
+                } else {
+                    userid = 'none';
+                }
+
+
+
+
+                $.ajax({
+                    type: "GET",
+                    //url: getUrlBase() + "api/event/818976f5-9ada-41c8-aac5-85b2a3ae0925",
+                    url: getUrlBase() + "api/events",
+                    contentType: "application/json",
+                    dataType: "json",
+                    async: "true",
+                    crossDomain: "true",
+
+                    beforeSend: function () {
+                        //$('#Grid_Events').jqGrid('clearGridData');
+                        //SetBusy();
+                    },
+
+                    success: function (data) {
+                        //SetNotBusy();
+                        var jsonObj = data;
+                        var q = jsonObj.length;
+                        var t = jsonObj.count;
+                        var d = jsonObj.description;
+                        var id = jsonObj.id;
+                        var event_name=jsonObj.headline;
+                        var img_url = getUrlBase() + jsonObj.img1;    //   http://gis.podassoc.com/iMii_images/stem1.png";
+                        var event_date= jsonObj.event_date;
+                        var description =  jsonObj.description;
+                        var event_url= jsonObj.url;
+
+
+                        if (id) {
+                            generateEventsDiv(id,event_name,img_url,event_date,description,event_url,userid);
+                        } else {
+                            for (var i = 0; i <= data.length; i++) {
+                                //jQuery("#Grid_Events").jqGrid('addRowData', i + 1, jsonObj[i]);
+                                if (jsonObj[i]) {
+                                    id=jsonObj[i]['id']
+                                    event_name = jsonObj[i]['headline']
+                                    //img_url = jsonObj[i]['lname']
+                                    event_date = jsonObj[i]['event_date']
+                                    description = jsonObj[i]['description']
+                                    event_url = jsonObj[i]['url']
+                                    img_url = getUrlBase() + "images/" + jsonObj[i]['img1'];
+
+                                    //console.log(aval)
+                                    generateEventsDiv(id,event_name,img_url,event_date,description,event_url,userid);
+                                }
+                            }
+                        }
+
+                    },
+                    loadComplete: function () {
+                        //$("#Grid_Events").jqGrid('setGridWidth', $(window).width(), true);
+                    },
+
+                    error: function (err) {
+                        //$.unblockUI();
+                        //SetNotBusy();
+                        alert("Error displaying images: " + err.status + "    " + err.statusText);
+                    }
+                });
+            }
+
+        // function getUrlBase() {
+        //     return 'http://localhost:6543/';
+        //     //return 'http://www.dev1.proto21.com/';
+        // }
+
+
+        function OpenForEditImage(_id) {
+            var modal = document.getElementById('imgModal');
+            var loc_id = document.getElementById('img_id');
+            loc_id.value = _id.toString();
+
+            modal.style.display = "block";
+        }
+
+        function OpenForEdit(_id,_headline,_img_url,_event_date,_description,_event_url) {
+            //id, headline,img_url,event_date,description,event_url
+            var modal = document.getElementById('myModal');
+
+            var lblEventModal = document.getElementById('lblEventModal');
+            lblEventModal.innerHTML = 'Edit Event';
+
+            var loc_id = document.getElementById('id');
+            loc_id.value = _id.toString();
+            if (loc_id) {loc_id.style.display = 'none'};
+            var headline = document.getElementById('headline');
+            headline.value = _headline;
+
+            var event_date = document.getElementById('event_date');
+            event_date.value = _event_date;
+
+            // date
+            //var location = document.getElementById('location');
+
+            var description = document.getElementById('description');
+            description.value = _description;
+            //headline.innerHTML = headline;
+            //var content = document.getElementById('headline');
+            var url = document.getElementById('url');
+            url.value = _event_url;
+
+            modal.style.display = "block";
+
+        }
+
+        function OpenForAdd() {
+            //id, headline,img_url,event_date,description,event_url
+            var modal = document.getElementById('myModal');
+
+            //alert('add');
+
+            var lblEventModal = document.getElementById('lblEventModal');
+            lblEventModal.innerHTML = 'Add an Interview';
+
+            var loc_id = document.getElementById('id');
+            //loc_id.value = _id.toString();
+            loc_id.style.display = 'none';
+            var txtheadline = document.getElementById('headline');
+            txtheadline.value = '';
+
+            //var headline = txtheadline.value;
+
+            var img_url = "aTeacherImage.jpg";
+
+            var txtevent_date = document.getElementById('event_date');
+            txtevent_date.value = '';
+            //var event_date = txtevent_date.value;
+
+            var txtlocation = document.getElementById('location');
+            txtlocation.value = "";
+            //var location = txtlocation.value;
+
+            var txtdescription = document.getElementById('description');
+            txtdescription.value = "";
+            //var description = txtdescription.value;
+            //headline.innerHTML = headline;
+            //var content = document.getElementById('headline');
+            //headline,_img_url,_event_date,_description,_event_url
+
+            //var txtevent_url =
+            event_url = 'www.esri.com';
+            var myModalButton = document.getElementById('btnWrite');
+            myModalButton.innerHTML = 'Create';
+            // myModalButton.setAttribute('onclick', "OpenForAdd('" + "'" + headline + "',"
+            //                                                     + "'" + img_url + "',"
+            //                                                     + "'" + location + "',"
+            //                                                     + "'" + event_date + "',"
+            //                                                     + "'" + description + "',"
+            //                                                     + "'" + event_url + "'"
+            //                                                     + ")");
+
+            myModalButton.setAttribute('onclick', "CreateNewsAndEvents()");
+
+            modal.style.display = "block";
+
+        }
+
+        function CreateNewsAndEvents() {
+            var aNewsAndEvent = '{' +
+                    '"headline": "' + document.getElementById("headline").value + '",' +
+                    '"event_date": "' + document.getElementById("event_date").value + '",' +
+                    '"description": "' + document.getElementById("description").value + '",' +
+                    '"interviewed": "yes",' +
+                    '"url": "' + document.getElementById("url").value + '"' +
+                '}';
+
+        // "headline": "STEM Day 2018",
+        // "event_date": "2017-08-07",
+        // "description": " careers in earth sciences",
+        // "url": " www.stem.org"
+
+            //alert(aNewsAndEvent);
+            //alert(getUrlBase() + "api/events");
+            $.ajax({
+                url: getUrlBase() + "api/events",
+                type: "POST",
+                //data: "{'editOptions':'" + aUnduplicatedUsers + "'}",
+                data: aNewsAndEvent,
+                //Host: localhost:6543,
+                //Cache-Control: no-cache
+                //dataType: "json",
+                //contentType: "application/json; charset=utf-8",
+
+                beforeSend: function () {
+                    //turnBothOff("UnduplicatedUsersSuccessResult", "UnduplicatedUsersErrorResult");
+                    //SetBusy();
+                },
+
+                success: function (response) {
+                    //SetNotBusy();
+                    //alert('success called');
+                    // if (response === "True") {
+                    //     //refresh the screen
+                    //     //SiteChanged();
+                    //
+                    //     if (anumber1 != anumber2) {
+                    //         setMessageDivVisibility("UnduplicatedUsersErrorInSummation");
+                    //     } else {
+                    //         setMessageDivVisibility("UnduplicatedUsersSuccessResult");
+                    //     }
+                    // } else {
+                    //     setMessageDivVisibility("UnduplicatedUsersErrorResult");
+                    // }
+                },
+                error: function (xhr) {
+                    alert("ERROR");
+                }
+            });
+
+
+        }
+
+        function UpdateNewsAndEvents() {
+
+            var modal = document.getElementById('myModal');
+            var loc_id = document.getElementById('id').value ;
+
+            //loc_id.value = _id.toString();
+            var headline = document.getElementById('headline');
+            //headline.value = _headline;
+
+            var date = document.getElementById('event_date');
+            //date.value = _event_date;
+
+            var description = document.getElementById('description');
+            //description.value = _description;
+
+            //var event_url = document.getElementById('url');
+
+            // var aNewsAndEvent = '{\n' +
+            //         '        "headline": "EarthDay 2018",\n' +
+            //         '        "event_date": "2018-04-07T03:46:09",\n' +
+            //         '        "description": " careers in earth and physical sciencess",\n' +
+            //         '        "url": null,\n' +
+            //         '        "id": "7c17146f-c0d6-43ec-9c2e-25f946b403b9"\n' +
+            //         '}';
+
+            var aNewsAndEvent = '{' +
+                '"headline": "' + document.getElementById("headline").value + '",' +
+                '"event_date": "' + document.getElementById("event_date").value + '",' +
+                '"description": "' + document.getElementById("description").value + '",' +
+                '"location": "' + document.getElementById("location").value + '",' +
+                    '"url": "' + document.getElementById("url").value + '",' +
+                '"id": "' + document.getElementById("id").value +
+                '"}';
+
+            //alert(aNewsAndEvent);
+            //alert(getUrlBase() + "api/event/" + loc_id);
+            $.ajax({
+                url: getUrlBase() + "api/event/" + loc_id,
+                type: "PUT",
+                //data: "{'editOptions':'" + aUnduplicatedUsers + "'}",
+                data: aNewsAndEvent,
+
+                beforeSend: function () {
+                    //turnBothOff("UnduplicatedUsersSuccessResult", "UnduplicatedUsersErrorResult");
+                    //SetBusy();
+                },
+
+                success: function (response) {
+                    //SetNotBusy();
+                    //alert('success');
+                    modal.style.display = "none";
+                    resetBtnURL('btnNewsAndEvents','NewsEvents','true')
+
+                },
+                error: function (xhr) {
+                    alert("ERROR");
+                }
+            });
+        }
+
+        function modalEditEvent(id) {
+           // Get the button that opens the modal
+            var btn = document.getElementById("ttt");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+    }
+
+        }
+
+        function generateEventsDiv(id, headline,img_url,event_date,description,event_url,userid) {
+
+            // <div class="col-sm-4 col-xs-12">
+            //     <div class="panel panel-default text-center">
+            //         <div class="panel-heading">
+            //             <h2><i>Event name</i></h2>
+            //         </div>
+            //         <div class="column">
+            //           <img src="http://gis.podassoc.com/iMii_images/stem1.png" alt="image" style="width:100%">
+            //             <br><br>
+            //         </div>
+            //         <div class="column">
+            //           <label><i>date</i></label>
+            //             <br><br>
+            //         </div>
+            //         <div class="panel-body">
+            //             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod </p>
+            //         </div>
+            //         <div class="panel-footer">
+            //           <button class="btn btn-lg">READ MORE</button>
+            //         </div>
+            //     </div>
+            // </div>
+
+            // <div class="container-fluid text-center">
+            // <div class="row content">
+
+            // grab the main container
+            var div1 = document.getElementById("div1");
+            // div1.className = "container-fluid text-center";
+            //
+            // var div1a = document.createElement("div")
+            // div1a.className = "row content\"";
+
+            // create an inner-div
+            var innerDiv1 = document.createElement("div")
+            innerDiv1.className = "col-sm-4 col-xs-12";
+
+            var innerDiv1a = document.createElement("div")
+            innerDiv1a.className="panel panel-default text-center"
+
+            var innerDiv1b_a = document.createElement("div")
+            //innerDiv1b.className="panel-heading"
+            innerDiv1b_a.className="row1a text-right";//"row1a"
+
+            var innerDiv1b = document.createElement("div")
+            innerDiv1b.className="panel-heading"
+            //innerDiv1b.className="row1a text-right";//"row1a"
+            var text1b = document.createElement("text")
+            text1b.innerHTML = headline;
+            innerDiv1b.appendChild(text1b);
+
+            // create the EDIT button
+            var innerDiv1button = document.createElement("button")
+            innerDiv1button.setAttribute('id','ttt')
+            innerDiv1button.setAttribute('content', 'test content');
+            innerDiv1button.setAttribute('class', 'btn');
+            innerDiv1button.innerHTML = 'edit';
+
+            //items to pass:   id, headline,img_url,event_date,description,event_url
+            innerDiv1button.setAttribute('onclick', "OpenForEdit('" + id.toString() + "',"
+                                                                + "'" + headline + "',"
+                                                                + "'" + img_url + "',"
+                                                                + "'" + event_date + "',"
+                                                                + "'" + description + "',"
+                                                                + "'" + event_url + "'"
+                                                                + ")");
+
+            if(userid){
+                if((userid.trim()=="none")||(userid.trim()=="undefined")){
+
+                } else {
+                    innerDiv1b_a.appendChild(innerDiv1button);
+
+                    var myBtnOpenAdd = document.getElementById('myBtnOpenAdd');
+                    myBtnOpenAdd.style.display = "block";
+                }
+
+            } else {
+
+            }
+
+            var innerDiv1buttonImg = document.createElement("button");
+            innerDiv1buttonImg.setAttribute('id','ttt');
+            innerDiv1buttonImg.setAttribute('content', 'test content');
+            innerDiv1buttonImg.setAttribute('class', 'btn');
+            innerDiv1buttonImg.innerHTML = 'image';
+
+            innerDiv1buttonImg.setAttribute('onclick', "OpenForEditImage('" + id.toString() + "'"
+                                                                + ")");
+
+
+            if(userid) {
+
+                if((userid.trim()=="none")||(userid.trim()=="undefined")){
+
+                } else {
+                    innerDiv1b_a.appendChild(innerDiv1buttonImg);
+                }
+            } else {
+
+            }
+
+            var innerDiv1c = document.createElement("div")
+            innerDiv1c.className="column"
+            //var text1c = document.createElement("img")
+            var text1c = document.createElement("img")
+            text1c.className="img1";
+            text1c.src = img_url;
+            innerDiv1c.appendChild(text1c)
+
+            var innerDiv1cc = document.createElement("div")
+            innerDiv1cc.className="column"
+            var text1cc = document.createElement("text")
+            text1cc.innerHTML = event_date;
+            innerDiv1cc.appendChild(text1cc)
+
+            var innerDiv1d = document.createElement("div")
+            innerDiv1c.className="panel-body";
+            var innerDiv1dText = document.createElement("button")
+            //innerDiv1dText.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+            // <button class="btn btn-lg">READ MORE</button>
+            var innerDiv1dText = document.createElement("text")
+            innerDiv1dText.innerHTML = description;
+            innerDiv1d.appendChild(innerDiv1dText)
+
+
+            var innerDiv1e = document.createElement("div")
+            innerDiv1c.className="panel-footer"
+            var innerDiv1eButton = document.createElement("button")
+            innerDiv1eButton.className="btn btn-lg";
+            innerDiv1eButton.innerText = "go"
+            innerDiv1eButton.setAttribute('onclick', "location.href = 'http://" + event_url + "';");
+            innerDiv1eButton.setAttribute('target', "_blank");
+
+            //innerDiv1e.appendChild(innerDiv1eButton)
+
+            if (event_url) {
+                var innerDiv1eAnchor = document.createElement("a")
+                //innerDiv1eAnchor.className="btn btn-lg";
+                innerDiv1eAnchor.innerText = "GO"
+                innerDiv1eAnchor.setAttribute('href', "http://" + event_url + "");
+                innerDiv1eAnchor.setAttribute('target', "_blank");
+                if (event_url != '') {
+                    innerDiv1e.appendChild(innerDiv1eAnchor);
+                } else {
+                    innerDiv1eAnchor.setAttribute('style:display', "none");
+                }
+            }
+
+
+            div1.appendChild(innerDiv1)
+            innerDiv1.appendChild(innerDiv1a)
+            innerDiv1a.appendChild(innerDiv1b_a)
+            innerDiv1a.appendChild(innerDiv1b)
+            innerDiv1a.appendChild(innerDiv1c)
+            innerDiv1a.appendChild(innerDiv1cc)
+            innerDiv1a.appendChild(innerDiv1d)
+            innerDiv1a.appendChild(innerDiv1e)
+
+        }
+    </script>
+</body>
+</html>

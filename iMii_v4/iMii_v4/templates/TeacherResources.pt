@@ -1,0 +1,7 @@
+<div metal:use-macro="load: TeacherResources_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            iMii page ----------------------------
+        </div>
+    </div>
+</div>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+
+      }
+
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+            /*position: fixed;*/
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-color: dimgray;
+            color: white;
+            text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+    .leftpanelphoto {
+
+            }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--?<a class="navbar-brand" href="/">Logo</a>-->
+        <a href="/" >
+                     <img src="/images/Proto21_logo.jpg" alt="image" style="max-width:50%;height:auto;">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--?<ul class="nav navbar-nav">-->
+        <!--?<li class="active"><a href="#">Home</a></li>-->
+        <!--?<li><a href="#">About</a></li>-->
+        <!--?<li><a href="#">Projects</a></li>-->
+        <!--?<li><a href="#">Contact</a></li>-->
+      <!--?</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/images/Proto21_logo.jpg">
+            <!--?<span class="glyphicon glyphicon-log-in"></span> -->
+            Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+          <h1>Python Web Development (authentication) <span style="font-weight:bold; color:dodgerblue;  font-size: smaller">Part 3</span></h1>
+
+        <br>
+        <h2>Use cookies to validate the User</h2>
+        <br>
+In part1 and part2, we built our 3-part prototype of authentication by adding an API
+        to a basic website that accepts, hashes, stores and verifies a user name and password. 
+        Then, we demonstrate how to restrict access to an API to only <i>authenticated</i> 
+        users.
+        <br>
+In this prototype, we will move to an MVC architecture and demonstrate how to use cookies for authentication as the user moves from page to page.
+        <br>
+
+        Objective(s):
+
+        Demonstrate the benefits of an MVC architecture in code re-use and maintainability.
+        <br><br>
+        Notable packages:<br>
+        <ul>
+            <li><a href="https://bower.io/">Bower</a> - Collect and maintain needed libraries and packages.</li>
+            <li><a href="https://docs.pylonsproject.org/projects/pyramid_handlers/en/latest/">Pyramid_handlers</a> - As the site grows, this package helps manage the many routes we'll need to create.</li>
+            <li><a href="https://www.sqlalchemy.org/">Sqlalchemy</a> - We'll use this toolkit to create and manage a local sqlite database.</li>
+            <li><a href="https://passlib.readthedocs.io/en/stable/">passlib</a> - This hashing library will increase the security of our user information.</li>
+        </ul>
+
+        What you will need: <br>
+        <ul style="list-style-type:none">
+          <li>Python 3.x and a browser.</li>
+        </ul>
+
+       <br>
+        <h3>Step 1: Clone the git project</h3>
+
+        Git clone https://github.com/Durant21/cookie_auth.git<br>
+
+        change directory into the resulting project<br>
+        <code>
+            $ cd cookie_auth<br>
+        </code>
+
+        Create a virtual env <br>
+        <code>
+            $ python3 -m venv --copies .env
+        </code>
+        <br>
+        Activate the .env <br>
+        <code>
+            $ . .env/bin/activate
+        </code>
+        <br>
+        Verify the location of the python library<br>
+        <code>
+        $ which python<br>
+        /Users/dantefernandez/Projects/PythonScripts/Proto21_tests/cookie_auth/.env/bin/python<br>
+        </code>
+
+        <br>
+        Complete the installation of the Pyramid framework<br>
+        <code>
+        $ python setup.py develop<br>
+        </code>
+
+        <br>
+        Run the application<br>
+        <code>
+            $ pserve development.ini<br>
+            Starting server in PID 26688.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+
+        </code>
+        <br><br>
+
+        This prototype is a simple application called "My Record Collection". <br>
+        Five pages demonstrate the process of creating an account, logging-in and navigating through the application.<br>
+        HTML elements of each page are either visible or hidden based on the users current authentication status.<br><br>
+
+        The landing page contains elements visible to a user who has come to the page and has not logged-in.<br>
+        "sign in" and "register" are visible because the browser cookie doesn't contain a value for "logged_in_user_id" <br>
+
+        <img src="/images/auth_cookie1.jpg" alt="Picture Description" style="width:80%">
+
+        <br><br>
+        An unauthenticated user could click on the "albums" button and see a listing of albums and tracks currently in the database.
+
+        <img src="/images/auth_cookie2.jpg" alt="Picture Description" style="width:80%">
+
+        <br><br>
+
+The unauthenticated user has the option of either signing-in or registering as a new user.
+On clicking register, the user is asked for e-mail and password.
+<br>
+
+<img src="/images/auth_cookie3a.jpg" alt="Picture Description" style="width:80%">
+<br><br>
+
+
+  Validation is handled server-side.
+The method AccountService.find_account_by_email() verifies the provided e-mail address is not already listed in the database.
+
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/auth_cookie3.jpg" alt="Picture Description" style="width:90%">
+                </th>
+
+                <th>
+                    <img src="/images/auth_cookie3b.jpg" alt="Picture Description" style="width:100%">
+                </th>
+            </tr>
+        </table>
+
+<br><br>
+
+        The class RegisterViewModel() verifies several details prior to the User being added to the database, such as the user specifying both an e-mail address and a password.  The class will also check the confirmation string against the original password.
+
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/auth_cookie4b.jpg" alt="Picture Description" style="width:90%">
+                </th>
+
+                <th>
+                    <img src="/images/auth_cookie4a.jpg" alt="Picture Description" style="width:100%">
+                </th>
+            </tr>
+        </table>
+
+<br><br>
+
+Once the e-mail address is verified as unique and a password has been provided, the user can be added to the database.
+<br>
+<img src="/images/auth_cookie4d.jpg" alt="Picture Description" style="width:80%">
+
+
+<br><br>
+The user password is hashed before being entered into the database.
+<br>
+<img src="/images/auth_cookie4c.jpg" alt="Picture Description" style="width:80%">
+
+
+<br><br>
+Once in the system, the user can sign-in.  This process will query the user database based on the e-mail address.
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/auth_cookie5b.jpg" alt="Picture Description" style="width:90%">
+                </th>
+
+                <th>
+                    <img src="/images/auth_cookie5c.jpg" alt="Picture Description" style="width:100%">
+                </th>
+            </tr>
+        </table>
+
+
+
+
+<br><br>
+
+If the user account is located, the password provided at login must match the password in the database.  The user provided password will be verified against the hashed-password stored in the database.
+
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/auth_cookie5a.jpg" alt="Picture Description" style="width:90%">
+                </th>
+
+                <th>
+                    <img src="/images/auth_cookie5d.jpg" alt="Picture Description" style="width:100%">
+                </th>
+            </tr>
+        </table>
+
+
+
+        <br><br>
+
+ If password can be verified, a user_id and a hash_val will be written to the cookie and the user will be redirected to an Account page.
+ <br>
+<img src="/images/auth_cookie6b.jpg" alt="Picture Description" style="width:80%">
+
+
+       <br><br>
+As the user navigates through the site, the hash_val stored in the cookie will determine what HTML elements are visible.<br>
+In the image below, user hash_val has been verified.  The "sign in" and "register" buttons have been replaced with "account" and "logout".
+        Also, on the "albums" page, an "edit" button is now visible.<br>
+
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/auth_cookie6a.jpg" alt="Picture Description" style="width:90%">
+                </th>
+
+                <th>
+                    <img src="/images/auth_cookie6c.jpg" alt="Picture Description" style="width:100%">
+                </th>
+            </tr>
+        </table>
+
+        <br><br>
+<h4 style="color:blue">Source(s):</h4>
+          These prototypes lean heavily on <a href="https://training.talkpython.fm/">TalkPython Training</a>  and <a href="https://www.fullstackpython.com/">Full Stack Python</a>
+
+        <br>    <br><br><br>
+
+
+
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+
+      }
+
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+            /*position: fixed;*/
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-color: dimgray;
+            color: white;
+            text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+    .leftpanelphoto {
+
+            }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--?<a class="navbar-brand" href="/">Logo</a>-->
+        <a href="/" >
+                     <img src="/images/Proto21_logo.jpg" alt="image" style="max-width:50%;height:auto;">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--?<ul class="nav navbar-nav">-->
+        <!--?<li class="active"><a href="#">Home</a></li>-->
+        <!--?<li><a href="#">About</a></li>-->
+        <!--?<li><a href="#">Projects</a></li>-->
+        <!--?<li><a href="#">Contact</a></li>-->
+      <!--?</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/images/Proto21_logo.jpg">
+            <!--?<span class="glyphicon glyphicon-log-in"></span> -->
+            Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+          <h1>Python Web Development (authentication)<br><span style="font-weight:bold; color:dodgerblue;  font-size: smaller">Part 1</span></h1>
+          <p>Below are the steps required to include authentication in your web application.</p>
+          <hr>
+        What you will need: <br>
+        <ul style="list-style-type:none">
+          <li>Your favorite text editor.</li>
+          <li><a href="https://passlib.readthedocs.io/en/stable/index.html">passlib</a> - We'll use passlib to hash our user passwords.</li>
+        </ul>
+
+        <br>
+        <p>
+            In the prototype <a href="/pythonwebdevelopment">Python Web Development (basic)</a>, we created a RESTful API service.
+             This prototype will build on the work completed by adding authentication to the project.
+        </p>
+        <br>
+        <h3>Step 1: Clone the git project</h3>
+
+        <code>
+             $ git clone https://github.com/Durant21/DO_site2.git<br>
+        </code>
+        <br>
+
+        change directory into the resulting project<br>
+        <code>
+            $ cd DO_site2<br>
+        </code>
+
+        Create a virtual env <br>
+        <code>
+            $ python3 -m venv --copies .env
+        </code>
+        <br>
+        Activate the .env <br>
+        <code>
+            $ . .env/bin/activate
+        </code>
+        <br>
+        Verify the location of the python library<br>
+        <code>
+        $ which python<br>
+        /Users/dantefernandez/Projects/PythonScripts/Proto21_tests/DO_site2/.env/bin/python<br>
+        </code>
+
+        <br>
+        Complete the installation of the Pyramid framework<br>
+        <code>
+        $ python setup.py develop<br>
+        </code>
+
+        <br>
+        Run the application<br>
+        <code>
+            $ pserve development.ini<br>
+            Starting server in PID 26688.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+
+        </code>
+        <br><br>
+
+        <h3>Step 2: Install the needed libraries</h3>
+
+        Add passlib and sqlalchemy to the setup.py file.<br>
+        <br>
+
+        <br><br>
+        Modify the <i>requires</i> list within setup.py file.<br>
+        Add the following content:<br>
+
+        <!--?https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_code_htmlhigh-->
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>setup.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+              requires = [<br>
+                <strong>'passlib',</strong><br>
+                'plaster_pastedeploy',<br>
+                'pyramid',<br>
+                'pyramid_chameleon',<br>
+                'pyramid_debugtoolbar',<br>
+                'waitress',<br>
+                <strong>'requests',</strong><br>
+                'python-dateutil',<br>
+                <strong>'sqlalchemy',</strong><br>
+                <strong>'responses'</strong><br>
+                    ]<br>
+          </div>
+        </div>
+
+        <br><br>
+
+        Rerun file (Ctrl-C if the site is still running…)<br>
+        <code>
+            $ python setup.py develop
+        </code>
+
+        <br><br>
+        We should now see <i>passlib</i> added to our project<br>
+        <code>
+            $ pip list
+        </code>
+
+        <br><br>
+        <img src="/images/pipList2.jpg" alt="Picture Description" style="width:80%">
+
+        <br><br>
+
+
+
+        <h3>Step 3: Create a User class</h3>
+
+        <br>
+        Create a file <strong>/data/User.py</strong> and add the following<br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>/data/User.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                importdatetime<br>
+                importuuid<br><br>
+
+                from sqlalchemy import Column,Integer,DateTime,String<br>
+
+                from DO_site2.data.sqlalchemy_base import SqlAlchemyBase<br>
+
+
+                classUser(SqlAlchemyBase):<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; __tablename__='User'<br>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; id=Column(Integer,primary_key=True,autoincrement=True)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; created=Column(DateTime,default=datetime.datetime.now)<br><br>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; name=Column(String,nullable=False,unique=True,index=True)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; hashed_password=Column(String)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; api_key=Column(String,default=lambda:str(uuid.uuid4()),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; index=True,unique=True)<br>
+            <br>
+
+                def to_dict(self):<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; return{<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'name':self.name,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'created':self.created,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'hashed_password':self.hashed_password,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'api_key':self.api_key,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'created':self.created.isoformat(),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 'id':self.id,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+
+          </div>
+        </div>
+        <br><br>
+
+
+        <h3>Step 4 Create /data/db_factory.py</h3>
+        <br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>/data/db_factory.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                    import os<br>
+                    import DO_site2<br>
+                    import sqlalchemy<br>
+                    import sqlalchemy.orm<br><br>
+
+                    from DO_site2.data.sqlalchemy_base import SqlAlchemyBase<br><br>
+
+
+                    class DbSessionFactory:<br>
+                     &nbsp; &nbsp; &nbsp; &nbsp;    __session_factory = None<br><br>
+
+                     &nbsp; &nbsp; &nbsp; &nbsp;    @classmethod<br>
+                     &nbsp; &nbsp; &nbsp; &nbsp;    def global_init(cls, db_filename):<br>
+                     &nbsp; &nbsp; &nbsp; &nbsp;        working_folder = os.path.dirname(DO_site2.__file__)<br>
+                     &nbsp; &nbsp; &nbsp; &nbsp;        file = os.path.join(working_folder, 'db', db_filename)<br>
+                     &nbsp; &nbsp; &nbsp; &nbsp;        conn_string = 'sqlite:///' + file<br><br>
+
+                      &nbsp; &nbsp; &nbsp; &nbsp;       # print("Connection string: " + conn_string)<br>
+                      &nbsp; &nbsp; &nbsp; &nbsp;       engine = sqlalchemy.create_engine(conn_string, echo=True)<br><br>
+
+                      &nbsp; &nbsp; &nbsp; &nbsp;       SqlAlchemyBase.metadata.create_all(engine)<br><br>
+
+                      &nbsp; &nbsp; &nbsp; &nbsp;       cls.__session_factory = sqlalchemy.orm.sessionmaker(bind=engine)<br><br>
+
+                      &nbsp; &nbsp; &nbsp; &nbsp;   @classmethod<br>
+                      &nbsp; &nbsp; &nbsp; &nbsp;   def create_session(cls):<br>
+                      &nbsp; &nbsp; &nbsp; &nbsp;       return cls.__session_factory()<br>
+            <br>
+          </div>
+        </div>
+        <br>
+
+        <br>
+
+        <br>
+
+
+
+        <h3>Step 5 Create the file /services/account_service.py</h3>
+        <br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>/services/account_service.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+
+                from passlib.handlers.sha2_crypt import sha512_crypt<br>
+                class AccountService:<br>
+                @staticmethod<br>
+                def hash_text(plain_text_password):<br>
+                hashed_text = sha512_crypt.encrypt(plain_text_password, rounds=150000)<br>
+                return hashed_text<br>
+                @classmethod<br>
+                def get_authenticated_account(cls, email, plain_text_password):<br>
+                account = AccountService.find_account_by_email(email)<br>
+                if not account:<br>
+                return None<br>
+                if not sha512_crypt.verify(plain_text_password, account.password_hash):<br>
+                return None<br>
+                return account<br>
+
+          </div>
+        </div>
+        <br>
+
+        <h3>Step 6 Create the file data/repository.py and add the following</h3>
+        <br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>/data/repository.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+
+                @classmethod<br>
+                def find_user_by_u_pw(cls,u:str,plain_text_password:str)->User:<br><br>
+
+                session=DbSessionFactory.create_session()<br>
+                user1=session.query(User).filter(User.name==u).first()<br><br>
+
+                session.close()<br>
+                ifnotuser1:<br>
+                return None<br><br>
+
+                if not sha512_crypt.verify(plain_text_password,user1.hashed_password):<br>
+                return None<br><br>
+
+                return user1<br><br>
+
+
+                @classmethod<br>
+                def find_user_by_api_key(cls, api_key: str) -> User:<br><br>
+
+                    session = DbSessionFactory.create_session()<br>
+                    user = session.query(User).filter(User.api_key == api_key).first()<br>
+                    session.close()<br><br>
+
+                    return user  <br>
+
+                @classmethod<br>
+                def create_user(cls,username,plain_text_password):<br><br>
+
+                session=DbSessionFactory.create_session()<br><br>
+
+                hashed_pw=AccountService.hash_text(plain_text_password)<br>
+                user=User(name=username)<br>
+                user.hashed_password=hashed_pw<br><br>
+
+                session.add(user)<br>
+
+                session.commit()<br>
+
+                returnuser<br>
+
+          </div>
+        </div>
+        <br>
+        <br>
+
+
+              <h3>Step 7 Modify __init__.py to initialize the database and create some test users</h3>
+        <br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>__init__.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+
+                from pyramid.config import Configurator<br>
+                # Following references needed for Sqlite creation<br>
+                from DO_site2.data.User import User<br>
+                from DO_site2.data.db_factory import DbSessionFactory<br>
+                from DO_site2.data.repository import Repository<br><br>
+
+
+
+                def main(global_config, **settings):<br>
+                    """ This function returns a Pyramid WSGI application.<br><br>
+                    """
+                    config = Configurator(settings=settings)<br>
+                    config.include('pyramid_chameleon')<br>
+                    init_db( config )<br>
+                    config.add_static_view('static', 'static', cache_max_age=3600)<br>
+                    config.add_route('home', '/')<br>
+                    config.scan()<br>
+                    return config.make_wsgi_app()<br><br>
+
+
+                def init_db(config):<br>
+                    settings = config.get_settings()<br>
+                    db_file = settings.get('db_filename')<br><br>
+
+                    DbSessionFactory.global_init(db_file)<br>
+                    Repository.create_user('jeff4','abc123')<br>
+
+          </div>
+        </div>
+        <br>
+
+
+              <h3>Step 8  Create the database</h3>
+        <br>
+            Create /db/template.txt<br>
+
+            Modify development.ini set the name and location of the database<br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>development.ini</h4>
+          <div class="w3-code htmlHigh notranslate">
+                [app:main]<br>
+                use = egg:DO_site2<br>
+                pyramid.reload_templates = true<br>
+                pyramid.debug_authorization = false<br>
+                pyramid.debug_notfound = false<br>
+                pyramid.debug_routematch = false<br>
+                pyramid.default_locale_name = en<br>
+                pyramid.includes =
+                pyramid_debugtoolbar<br>
+                db_filename = iMii_v3.sqlite<br>
+                db_path = your_path/DO_site2/DO_site2/db<br>
+
+
+          </div>
+        </div>
+        <br>
+
+
+              <h3>Step 9 create user_api.py </h3>
+        <br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>user_api.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                @view_config(route_name='login_api',<br>
+                request_method='GET',<br>
+                accept='application/json',<br>
+                renderer='json')<br>
+                defverifyLogIn(request):<br><br>
+
+                #u1=request.params('u')<br>
+                u=request.GET['u']<br>
+                pw=request.GET['pw']<br>
+                #p=request.params['pw']<br>
+                y="abc"<br><br>
+
+                user=Repository.find_user_by_u_pw(u=u,plain_text_password=pw)<br>
+                ifnotuser:<br>
+                thisdict={<br>
+                "api_key":"none"<br>
+                }<br>
+                #returnResponse(status=403,body="Invaliduserorpassword;nouserwiththesecredentials")<br>
+                returnthisdict<br><br>
+
+                returnuser.to_dict()<br><br>
+
+
+
+          </div>
+        </div>
+        <br>
+        Create the file /api/__init__.py and leave it blank.<br><br>
+
+
+        <br><br>
+
+
+                Your project structure should look like the following <br><br>
+                <img src="/images/tree6a.jpg" alt="Picture Description" style="width:80%">
+                <img src="/images/tree6b.jpg" alt="Picture Description" style="width:80%">
+
+        <br><br>
+        <h3>Step 10  Test the app for basic authentication</h3>
+        <br>
+        Run the application<br>
+        <code class="lang-html">
+            $ pserve development.ini<br>
+            Starting server in PID 26688.<br>
+            Serving on http://localhost:6543<br>
+            Serving on http://localhost:6543<br>
+
+        </code>
+        <br><br>
+        Use Postman to test the Authentication portion of the app.<br>
+        Note:  In production, you wouldn't pass user and password within the URL.  This is only a test.
+
+
+        <img src="/images/postman_LogIn1.jpg" alt="Picture Description" style="width:100%">
+
+        <br><br><br><br>
+
+
+
+                    <h4 style="color:blue">Next</h4>
+
+                    In <a href="/SecureEndpoint">Part2</a>, we will demonstrate how to restrict access to an API to only <i>authenticated</i> users.
+
+
+<br>    <br><br><br>
+
+              <!--?<h3>Step 11 Use authentication to secure an API endpoint </h3>-->
+        <!--?<br>-->
+        <!--?Create /infrastructure/Auth.py <br>-->
+
+        <!--?<div class="w3-panel w3-card w3-light-grey">-->
+          <!--?<h4>/infrastructure/Auth.py</h4>-->
+          <!--?<div class="w3-code htmlHigh notranslate">-->
+                <!--?from pyramid.response import Response<br><br>-->
+
+                <!--?from DO_site2.data.repository import Repository<br><br>-->
+
+
+                <!--?def parse_api_key(request):<br>-->
+                    <!--?auth_header = request.headers.get('Authorization')<br>-->
+                    <!--?if not auth_header:<br>-->
+                        <!--?return None, "You must specify an Authorization header."<br><br>-->
+
+                    <!--?parts = auth_header.split(':')<br>-->
+                    <!--?if len(parts) != 2 or parts[0].strip() != 'api-key':<br>-->
+                        <!--?return None, "Invalid auth header"<br><br>-->
+
+                    <!--?api_key = parts[1].strip()<br>-->
+                    <!--?user = Repository.find_user_by_api_key(api_key)<br>-->
+                    <!--?if not user:<br>-->
+                        <!--?return None, "Invalid API Key, no user with this account."<br><br>-->
+
+                    <!--?return user, None<br><br>-->
+
+
+                <!--?def require_api_auth(func):<br>-->
+                    <!--?def wrapped(request):<br>-->
+                        <!--?user, error = parse_api_key(request)<br>-->
+                        <!--?if error:<br>-->
+                            <!--?return Response(status=403, body=error)<br><br>-->
+
+                        <!--?request.api_user = user<br><br>-->
+
+                        <!--?return func(request)<br><br>-->
+
+                    <!--?return wrapped<br><br>-->
+
+
+          <!--?</div>-->
+        <!--?</div>-->
+        <!--?<br>-->
+
+
+
+        <br><br>
+        <!--?<h3>Extra:</h3><br>-->
+            <!--?This is a very simple app without many instances where logging might be necessary.<br>-->
+            <!--?More kinds of logging would include<br>-->
+                <!--?• Critical<br>-->
+                <!--?• Error<br>-->
+                <!--?• Warning<br>-->
+                <!--?• Notice<br>-->
+                <!--?• Info<br>-->
+            <!--?• Debug      <br>-->
+
+
+
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

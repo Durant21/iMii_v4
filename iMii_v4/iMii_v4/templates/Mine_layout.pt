@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>iMii Mine</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/aa.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      .button {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .navbtnuuu {
+      font-size : 20px;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+            height: 100px;
+           width: 100%;
+           background-color: dimgray;
+           color: white;
+           text-align: center;
+        }
+  </style>
+</head>
+<body>
+
+   <div id="includedHeader"></div>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+
+    <div class="col-sm-6 text-left" style="padding-top: 15px; padding-bottom: 0px;">
+      <div class="row">
+                <div class="col-sm-1" style="background-color:white; color:green; height:500px; align-content: center"></div>
+                <div class="col-sm-10" style="background-color:white; color:green; height:500px; align-content: center">
+                    <img src="/graphics/Mine_Blur.png" alt="Picture Description" usemap="#planetmap" style="width: 500px; height: 500px; left:300px">
+                    <map name="planetmap">
+                        <!--?<area shape="circle" coords="<top left><bottom right>" alt="Mercury" href="https://www.google.com">-->
+                        <area shape="rect" id="aDiscover" style="color:green" coords="150,0,350,150" href="Discover">
+                        <area shape="rect" id="aPlan" style="color:white" coords="350,130,500,350" href="Plan">
+                        <area shape="rect" id="aMiningCycle" style="color:white" coords="150,200,300,300" href="MiningCycle">
+                        <area shape="rect" id="aMine" style="color:white" coords="170,350,330,600" href="Mine">
+                        <area shape="rect" id="aReclaim" style="color:white" coords="0,130,130,350" href="Reclaim">
+
+                        <!--?<img src="http://localhost:6543/graphics/reclaim_isolated.png" alt="Picture Description" style="width:100%">-->
+                    </map>
+
+                </div>
+                <div class="col-sm-1" style="background-color:white; color:green; height:500px; align-content: center"></div>
+            </div>
+    </div>
+    <div class="col-sm-6 text-left">
+      <h1>MINE</h1>
+      <p>
+The Mine stage of the Mining Cycle diagram marks the third stage of mining
+and minerals activities. In this stage, minerals of proven economic
+concentrations are extracted from the subsurface and the plans for the
+financing, engineering and processing of the minerals from the ground have
+been laid out and approved by the regulators.  This stage involves many
+disciplines of mining experts, including the geosciences, environmental and
+biological scientists, engineers, project managers and financial experts, to
+name a few. Community engagement and environmental assessment work is
+a key part of the Mine stage.  Once a mine life has been exhausted, the project
+advances to the final stage, Reclaim. Reclamation efforts are not only
+completed after the mining is done; these efforts are on-going for the life of
+the mine.
+ <br><br><H3><strong>OUR PROJECTS</strong></H3><br>
+Click on the Projects tab below to find out more about curriculum connections
+to the Mine stage.
+      </p>
+      <hr>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="includedFooter"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#includedHeader").load("iMiiMasterHeader1");
+        });
+
+        $(document).ready(function(){
+            $("#includedFooter").load("iMiiMasterFooter1");
+        });
+
+        // $(document).ready(function(){
+        //     $("#includedHeader").load("static/iMiiMasterHeader.html");
+        // });
+        //
+        //
+        // $(document).ready(function(){
+        //     $("#includedFooter").load("static/iMii_master_footer.html");
+        // });
+    </script>
+
+</body>
+</html>

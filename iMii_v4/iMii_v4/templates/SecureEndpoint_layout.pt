@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proto21.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+
+      }
+
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+            /*position: fixed;*/
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+            background-color: dimgray;
+            color: white;
+            text-align: right;
+            padding-right: 50px;
+            padding-top: 5px;
+            font-size: large;
+        }
+
+        /*a:link {*/
+            /*color: white;*/
+        /*}*/
+
+    .leftpanelphoto {
+
+            }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--?<a class="navbar-brand" href="/">Logo</a>-->
+        <a href="/" >
+                     <img src="/images/Proto21_logo.jpg" alt="image" style="max-width:50%;height:auto;">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--?<ul class="nav navbar-nav">-->
+        <!--?<li class="active"><a href="#">Home</a></li>-->
+        <!--?<li><a href="#">About</a></li>-->
+        <!--?<li><a href="#">Projects</a></li>-->
+        <!--?<li><a href="#">Contact</a></li>-->
+      <!--?</ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/images/Proto21_logo.jpg">
+            <!--?<span class="glyphicon glyphicon-log-in"></span> -->
+            Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+          <h1>Python Web Development (authentication) <span style="font-weight:bold; color:dodgerblue;  font-size: smaller">Part 2</span></h1>
+
+        <br>
+        <h2>Secure an API Endpoint</h2>
+        <br>
+        In part1, we started our 3-part prototype of authentication by adding an API to a basic website that accepts,
+        hashes, stores and verifies a user name and password.
+        <br>
+
+        In this prototype, part2, we demonstrate how to restrict access to an API to only <i>authenticated</i> users.<br>
+        <br>
+
+        What you will need: <br>
+        <ul style="list-style-type:none">
+          <li>Your favorite text editor.</li>
+            <li><a href="https://www.getpostman.com/">Postman</a> - We'll use Postman to test our new API endpoints.</li>
+            <li>A Sqlite database reader, e.g. <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>
+            The free community version should work just fine.</li>
+        </ul>
+
+        Review steps 1-10 from <a href="/Authentication">part1</a>.
+        <br><br>
+
+        <h3>Step 11 Use authentication to secure an API endpoint </h3>
+        <br>
+        Create /infrastructure/Auth.py <br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>/infrastructure/Auth.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                from pyramid.response import Response<br><br>
+
+                from DO_site2.data.repository import Repository<br><br>
+
+
+                def parse_api_key(request):<br>
+                    auth_header = request.headers.get('Authorization')<br>
+                    if not auth_header:<br>
+                        return None, "You must specify an Authorization header."<br><br>
+
+                    parts = auth_header.split(':')<br>
+                    if len(parts) != 2 or parts[0].strip() != 'api-key':<br>
+                        return None, "Invalid auth header"<br><br>
+
+                    api_key = parts[1].strip()<br>
+                    user = Repository.find_user_by_api_key(api_key)<br>
+                    if not user:<br>
+                        return None, "Invalid API Key, no user with this account."<br><br>
+
+                    return user, None<br><br>
+
+
+                def require_api_auth(func):<br>
+                    def wrapped(request):<br>
+                        user, error = parse_api_key(request)<br>
+                        if error:<br>
+                            return Response(status=403, body=error)<br><br>
+
+                        request.api_user = user<br><br>
+
+                        return func(request)<br><br>
+
+                    return wrapped<br><br>
+
+
+          </div>
+        </div>
+        <br>
+
+        <h3>Step 12  Add a People data class</h3>
+        <br>
+
+        <!--?Create a /views directory.<br>-->
+        <!--?Add a blank __init__.py to /views directory.<br>-->
+        <br>
+        Add a route configuration to the Main() method in __init__.py.<br>
+        config.add_route('people_api','/api/people')<br>
+
+
+
+        <!--?https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_code_htmlhigh-->
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>__init__.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+
+                def main(global_config, **settings):<br>
+                   &nbsp; &nbsp;  """ This function returns a Pyramid WSGI application.<br>
+                   &nbsp; &nbsp;  """<br>
+                    &nbsp; &nbsp; config = Configurator(settings=settings)<br>
+                    &nbsp; &nbsp; config.include('pyramid_chameleon')<br>
+                    &nbsp; &nbsp; init_db( config )<br>
+                    &nbsp; &nbsp; config.add_static_view('static', 'static', cache_max_age=3600)<br>
+                    &nbsp; &nbsp; config.add_route('home', '/')<br>
+                    &nbsp; &nbsp; config.add_route('login_api','/api/login')<br>
+                    &nbsp; &nbsp; <strong>config.add_route('people_api','/api/people')</strong><br>
+                    &nbsp; &nbsp; config.scan()<br>
+                    &nbsp; &nbsp; return config.make_wsgi_app()<br>
+
+          </div>
+        </div>
+
+        <br><br>
+        Add a csv file called <strong>/data/people.csv</strong>.<br>
+        Add the following content:<br>
+
+        <!--?https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_code_htmlhigh-->
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>people.csv</h4>
+          <div class="w3-code htmlHigh notranslate">
+            fname,lname,title,position,company,email,url1,url2,address,city,state,date_edited<br>
+            Dan,Gonzales,title,position,company,email,url1,url2,4950Mainst,Anytown,Tx,2016-04-0601:45:10<br>
+            Sue,Wiliams,title,position,company,email,url1,url2,11011stst,Anytown,Tx,2016-04-0601:45:10<br>
+            Ben,Johnson,title,position,company,email,url1,url2,12Bakerst,Anytown,Tx,2016-04-0601:45:10<br>
+          </div>
+        </div>
+
+        <br><br>
+        Create the file <strong>/data/repository_people.py</strong> to the /data directory and add the following content:<br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>repository_people.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                importcsv<br>
+                importos<br>
+                importuuid<br>
+                <br><br>
+                classRepository_people:<br>
+                __people_data={}<br>
+
+                @classmethod<br>
+                Def all_people(cls,limit=None):<br>
+                cls.__load_data()<br>
+
+                people=list(cls.__people_data.values())<br>
+                iflimit:<br>
+                people=people[:limit]<br>
+
+                returnpeople<br>
+
+                @classmethod<br>
+                def__load_data(cls):<br>
+                ifcls.__people_data:<br>
+                return<br>
+                <br>
+                file=os.path.join(<br>
+                os.path.dirname(__file__),<br>
+                'people.csv'<br>
+                )<br>
+                <br>
+                withopen(file,'r',encoding='utf-8')asfin:<br>
+                #brand,name,price,year,damage,last_seen<br>
+                reader=csv.DictReader(fin)<br>
+                forrowinreader:<br>
+                key=str(uuid.uuid4())<br>
+                row['id']=key<br>
+                cls.__people_data[key]=row<br>
+                <br>
+          </div>
+        </div>
+
+
+        <br><br>
+        Create the file <strong>/api/people_api.py</strong> and add the following content:<br>
+
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>people_api.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                from pyramid.viewimportview_config<br>
+                import DO_site2.infrastructure.auth as auth<br>
+                from DO_site2.data.repository_people import Repository_people<br>
+                <br><br>
+                @view_config(route_name='people_api',<br>
+                request_method='GET',<br>
+                accept='application/json',<br>
+                renderer='json')<br>
+                Def all_people(_):<br>
+
+                people=Repository_people.all_people(limit=25)<br>
+                return people        <br>
+                <br>
+          </div>
+        </div>
+
+        <br>
+
+        Add a python file called home_page.py to the /views directory.<br>
+        Add the follow content:<br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>home_page.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+            frompyramid.viewimportview_config<br>
+            <br>
+
+            @view_config(route_name='home',renderer='DO_site2:templates/mytemplate.pt')<br>
+            defmy_view(request):<br>
+            return{'project':'Home'}     <br>
+          </div>
+        </div>
+
+        <br>
+
+        Once all folders and files are added, the project structure will look like this
+        <table>
+            <tr>
+                <th>
+                    <img src="/images/tree3a.jpg" alt="Picture Description" style="width:80%">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <img src="/images/tree3b.jpg" alt="Picture Description" style="width:80%">
+                </th>
+            </tr>
+        </table>
+
+        <br>
+        <!--?From the cmd line, run the app.<br>-->
+        <!--?<code>-->
+            <!--?$ pserve development.ini<br>-->
+            <!--?Starting server in PID 26688.<br>-->
+            <!--?Serving on http://localhost:6543<br>-->
+            <!--?Serving on http://localhost:6543<br>-->
+        <!--?</code>-->
+        <br><br>
+
+        <h3>Step 13  Add a decorator to the get_people() method to require user-authentication</h3>
+        <br><br>
+        <div class="w3-panel w3-card w3-light-grey">
+          <h4>people_api.py</h4>
+          <div class="w3-code htmlHigh notranslate">
+                from pyramid.viewimportview_config<br>
+                import DO_site2.infrastructure.auth as auth<br>
+                from DO_site2.data.repository_people import Repository_people<br>
+                <br><br>
+                @view_config(route_name='people_api',<br>
+                request_method='GET',<br>
+                accept='application/json',<br>
+                renderer='json')<br>
+              <strong>@auth.require_api_auth</strong></br>
+                Def all_people(_):<br>
+
+                people=Repository_people.all_people(limit=25)<br>
+                return people        <br>
+                <br>
+          </div>
+        </div>
+
+        <br><br>
+        <h3>Step 14  Use Postman to test</h3><br><br>
+        We will run 2 tests.  The first test will be without Authentication.
+
+
+        <br><br>
+        With the application running, open Postman and create a GET call using the URL <font color="blue"> http://localhost:6543/api/people</font><br>
+        Add a key-value <br>
+        &nbsp;&nbsp;&nbsp;<i>Accept : application/json</i><br><br>
+        When you click Send, the results should be as shown, below.<br> Note the response back from the server <i>"You must specify an Authorization header"</i>
+
+        <img src="/images/postman_auth2.jpg" alt="Picture Description" style="width:100%">
+
+        <br><br>
+        In our second test, we'll add an Authentication key-value.  <br>
+        <br><strong><i>You will need to open the Users table in the iMii_v3.sqlite.
+        I use PyCharm but there are, of course, other software.</i></strong><br><br>
+        In the image below, we need to copy the api_key value to the clipboard (control-C).
+        <br>
+        <img src="/images/tblUsers1.jpg" alt="Picture Description" style="width:100%">
+        <br><br>
+        Use the copied value to add a second key-value to our Postman API call, as shown in the graphic, below.<br>
+        &nbsp;&nbsp;&nbsp;<i>Authorization : api-key:<...></i><br><br>
+        When you click Send, the Authorization value will be tested against the database.
+        If successful, the application will return the requested information.
+        In this case, a listing of all records in our People datastore.
+        <img src="/images/postman_auth1.jpg" alt="Picture Description" style="width:100%">
+        <br><br><br><br>
+
+
+
+                    <h4 style="color:blue">Next</h4>
+
+                    Part3 of our Authentication prototype series will discuss User registration and authentication using cookies.
+
+
+<br>    <br><br><br>
+
+
+
+    </div>
+
+
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+<footer class="stickyfooter">
+  <a href="about_author" style="color:white;">Dante Fernandez</a>
+</footer>
+
+</body>
+</html>

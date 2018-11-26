@@ -1,0 +1,242 @@
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbarHeader {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .navbtn {
+        font-size : 20px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+          .button {
+            background-color: rgb(34,34,34);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    @media screen and (max-width: 600px) {
+      .topnav a:not(:first-child) {display: none;}
+      .topnav a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+</style>
+
+<script src="scripts/common3.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/scripts/social_media.css">
+
+<script>
+
+    // By default, login panel not visible.
+    var login = document.getElementById('login');
+    login.style.display = "none";
+
+    var aLogout = document.getElementById('aLogout');
+    aLogout.style.display = "none";
+
+    function setLogInVisible() {
+        var login = document.getElementById('login');
+        login.style.display = "block";
+
+
+        var aLogin = document.getElementById('aLogin');
+        aLogin.style.display = "none";
+    }
+
+    function closeLogin() {
+        var login = document.getElementById('login');
+        login.style.display = "none";
+
+        var aLogin = document.getElementById('aLogin');
+        aLogin.style.display = "block";
+
+    }
+
+    function setLoginAnchorVisible() {
+
+        var aLogin = document.getElementById('aLogin');
+        aLogin.style.display = "block";
+
+        var aLogout = document.getElementById('aLogout');
+        aLogout.style.display = "none";
+
+        // clear the URL of id string
+
+
+        // clear all controls of id string
+
+        aBtn = document.getElementById('btnHome');
+        if (aBtn) {
+            aBtn.setAttribute("onclick", "location.href='iMii'");
+            aBtn.click();
+
+        } else {
+            //alert('could not locate ' + btnName )
+        }
+
+    }
+
+
+    function setLogoutVisible(sBln) {
+        var aLogout = document.getElementById('aLogout');
+        var aLogin = document.getElementById('aLogin');
+        if (sBln == 'true') {
+            aLogout.style.display = "block";
+            aLogin.style.display = "none";
+        } else {
+            aLogout.style.display = "none";
+            aLogin.style.display = "block";
+        }
+    }
+</script>
+
+<!--?<div class="container">-->
+  <div class="row" >
+
+
+         <!--?   HEADER  -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!--?<a class="navbar-brand" href="#">Logo</a>-->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+              <!--?<li><input type="button" class="button navbtn" value="HOME" onclick="location.href='iMii';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" value="MINING CYCLE" onclick="location.href='MiningCycle';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" value="ABOUT" onclick="location.href='About';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" value="TEACHER RESOURCES" onclick="location.href='TeacherResources';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" value="NEWS & EVENTS" onclick="location.href='NewsEvents';" ></li>-->
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="HOME"              id="btnHome"             onclick="resetBtnURL('btnHome','iMii','true')" ></li>
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="ABOUT"             id="btnAbout"            onclick="resetBtnURL('btnAbout','About','true')" ></li>
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="MINING CYCLE"      id="btnMiningCycle"      onclick="resetBtnURL('btnMiningCycle','MiningCycle','true')" ></li>
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="WOMEN IN MINING"   id="btnWomenInMining"    onclick="resetBtnURL('btnWomenInMining','WomenInMining','true')" ></li>
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="TEACHER RESOURCES" id="btnTeacherResources" onclick="resetBtnURL('btnTeacherResources','TeacherResources','true')" ></li>
+              <li><input type="button" style="font-size:1.4vw;" class="button navbtn" value="OUR PROJECTS"     id="btnOurProjects"    onclick="resetBtnURL('btnOurProjects','OurProjects','true')"></li>
+              <li><a href="https://twitter.com/GITC_Mining?lang=en" class="fa fa-twitter"  target="_blank"></a>
+              <!--?<a href="https://twitter.com/intent/tweet?button_hashtag=gitc_mining&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #gitc_mining</a>-->
+                  <!--?<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+              </li>
+          </ul>
+            <input id="hKey1" name="hKey" type="hidden" value="none">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="aLogin" href="#" onclick="setLogInVisible()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a id="aLogout" href="#" onclick="setLoginAnchorVisible()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <div id="login">
+                    <div class="form-group">
+                        <input type="text" id="user" placeholder="User" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button id="btnSubmit" type="submit" class="btn btn-success" onclick="verifyUser()">Sign in</button>
+                <button id="btnCancel" type="submit" class="btn btn" onclick="closeLogin()">Cancel</button>
+                    <input id="hKey" type="hidden" name="hKey" value="none">
+
+
+            </div>
+≈
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="col-sm-12" style="background-color:rgb(158,31,99); height: 30px;">
+        <br>
+    </div>
+    <div class="col-sm-12" style="background-color:rgb(217,180,81); height: 20px;">
+        <br>
+    </div>
+    <div class="col-sm-12" style="background-color:rgb(99,71,101); height: 30px;">
+        <br>
+    </div>
+  </div>
+
+<script>
+    function getHiddenKey() {
+            var btn = document.getElementById("btnPeople")
+
+            //location.href='People?k=getHiddenKey()
+            var hKey = document.getElementById('hKey');
+            // hKey.value = data.api_key;
+            if (hKey) {
+                return hKey.value;
+            } else {
+                return "";
+            }
+    }
+
+</script>
+
+<script>
+
+    // document.getElementById("btnPeople").onclick = function() {
+    //     // aBtn = document.getElementById("btnPeople");
+    //     // aBtn.href="www.esri.com";
+    //     // aBtn.setAttribute("location.href", "www.esri.com");
+    //     // aBtn.setAttribute("onclick", "location.href='http://www.esri.com'");
+    //
+    //     alert('set');
+    //     return false;
+    // };
+//alert('calling getParams1');
+
+        $(document).ready(function(){
+            //alert('inside..');
+                var q = getParams1(window.location.href);
+                if (q) {
+                    userid = q['k'];
+                    var hKey = document.getElementById('hKey');
+                    if (hKey) {
+                        hKey.value = userid;
+                        resetAllAnchors();
+                        resetAllButtons();
+                        //alert('reset all anchors');
+                    }
+
+                    var hKey1 = document.getElementById('hKey1');
+                    if (hKey1) {
+                        hKey1.value = userid;
+                        //alert('aaaaa')
+                    }
+                    //alert('found q');
+
+                    //alert('useridd: ' + userid);
+                    if (userid.trim() == 'NONE' || userid.trim() == 'undefined') {
+                        //alert('setting false');
+                        setLogoutVisible('false');
+                    } else {
+                        setLogoutVisible('true');
+                        //alert('setting true');
+                    }
+
+                } else {
+                    userid = "";
+                    //alert('could not find q');
+                }
+        });
+
+
+    //alert('done with getParams1');
+  </script>
+<!--?  bottom of header -->

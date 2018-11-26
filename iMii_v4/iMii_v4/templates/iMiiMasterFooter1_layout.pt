@@ -1,0 +1,44 @@
+<style>
+    .stickyfooter {
+        /*position: fixed;*/
+        padding: 0px;
+        left: 0;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        /*background-color: black;*/
+        color: white;
+        text-align: center;
+        }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  </style>
+
+<footer class="stickyfooter">
+
+    <div class="col-sm-12" style="background-color:rgb(227,86,109);height: 30px;">
+      <!--?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.-->
+        <br><br>
+    </div>
+    <div class="col-sm-12" style="background-color:rgb(243,224,184);height: 25px;">
+      <!--?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.-->
+        <br>
+    </div>
+    <div class="col-sm-12" style="background-color:rgb(147,149,152);height: 30px;">
+      <!--?Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.-->
+        <br><br>
+    </div>
+        <div class="col-sm-12" style="background-color:black; height: 100px">
+            <ul class="nav navbar-nav navbar-right">
+              <!--?<li><input type="button" class="button navbtn" value="" onclick="location.href='iMii';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" value=" " onclick="location.href='MiningCycle';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" style="width: 240px;word-wrap: break-word;" value="PARTICIPATING ORGANIZATIONS" onclick="location.href='ParticipatingOrganizations';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" style="width: 180px;word-wrap: break-word;" value="CAREER PATHWAYS" onclick="location.href='CareerPathways';" ></li>-->
+              <!--?<li><input type="button" class="button navbtn" style="width: 180px;word-wrap: break-word;" value="CONTACT US" onclick="location.href='ContactUs';" ></li>-->
+            </ul>
+    </div>
+</footer>

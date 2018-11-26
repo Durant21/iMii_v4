@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>iMii Discover</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/aa.css">
+<script src="scripts/common3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+      .id3 {
+            max-width: 100%;
+            max-height: 290px;
+            height: auto;
+          padding: 0px;
+      }
+
+      .yy {
+          background-color: white;
+      }
+      .btn {
+            background-color: dodgerblue;
+            border: none;
+            color: white;
+            padding: 4px 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+      }
+
+      .button {
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+* {
+    box-sizing: border-box;
+}
+/*this is a test*/
+.infoBox1 {
+    float: left;
+    width: 66.66%;
+    padding: 5px;
+    border: 0px solid black;
+}
+
+.img1 {
+    max-width: 100%;
+    max-height: 100%;
+}
+.column {
+    float: left;
+    width: 100%;
+    padding-right: 10px;
+    border: 0px solid black;
+    background-color: white;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.outer {
+	background-color: white;
+}
+
+      .div1a {
+        width: 40%;
+        background-color: white; display: inline-block
+        }
+
+        .div1b {
+        width: 50%;
+        display: inline-block
+        }
+
+        .div2 {
+        width: 100%;background-color: lightblue;
+        }
+
+        .div2a {
+        width: 90%;
+        background-color: white; display: inline-block
+        }
+
+        .div2b {
+        width: 5%;
+        display: inline-block
+        }
+        .div3a {
+        display: inline-block
+        }
+
+        .div3b {
+        display: inline-block
+        }
+
+      /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .navbtn {
+      font-size : 20px;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+    .stickyfooter {
+           /*position: fixed;*/
+           left: 0;
+           bottom: 0;
+            height: 100px;
+           width: 100%;
+           background-color: white;
+           color: white;
+           text-align: center;
+        }
+
+    .row1 {
+        /*background-color: rosybrown;*/
+        /*padding-left: 300px;*/
+    }
+
+    .row1a {
+        background-color: white;   /* red;*/
+        width: 70%;
+    }
+
+    .desc {
+        height: 300px;
+        /*background-color: bisque;*/
+        overflow: auto;
+    }
+
+            /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .control-width {
+            width: 80%;
+        }
+
+        .control-height {
+            height: 100px;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+  </style>
+</head>
+<body onload="populateTablesPeople()">
+
+   <!--?   HEADER  -->
+<!--?<nav class="navbar navbar-inverse">-->
+  <!--?<div class="container-fluid">-->
+    <!--?<div class="navbar-header">-->
+      <!--?<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=
+"#myNavbar">-->
+        <!--?<span class="icon-bar"></span>-->
+        <!--?<span class="icon-bar"></span>-->
+        <!--?<span class="icon-bar"></span>-->
+      <!--?</button>-->
+      <!--?<a class="navbar-brand" href="#">Logo</a>-->
+    <!--?</div>-->
+    <!--?<div class="collapse navbar-collapse" id="myNavbar">-->
+      <!--?<ul class="nav navbar-nav">-->
+          <!--?<li><input type="button" class="button navbtn" value="HOME" onclick="locati
+on.href='iMii';" ></li>-->
+          <!--?<li><input type="button" class="button navbtn" value="MINING CYCLE" onclick
+="location.href='MiningCycle';" ></li>-->
+          <!--?<li><input type="button" class="button navbtn" value="ABOUT" onclick="locat
+ion.href='About';" ></li>-->
+          <!--?<li><input type="button" class="button navbtn" value="TEACHER RESOURCES" on
+click="location.href='TeacherResources';" ></li>-->
+          <!--?<li><input type="button" class="button navbtn" value="NEWS & EVENTS" onclic
+k="location.href='NewsEvents';" ></li>-->
+      <!--?</ul>-->
+
+      <!--?<ul class="nav navbar-nav navbar-right">-->
+        <!--?<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></l
+i>-->
+      <!--?</ul>-->
+    <!--?</div>-->
+  <!--?</div>-->
+<!--?</nav>-->
+
+   <div id="includedHeader"></div>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+      <!--?<p><a href="#">Link</a></p>-->
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Women In Mining</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in
+            cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat
+            ion ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupid
+            atat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectet
+            ur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comm
+            odo consequat.</p>
+      <hr>
+
+
+<!--?<button id="myBtn">qq</button>-->
+        <div class="div2b">
+            <!-- Trigger/Open The Modal -->
+
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+
+                  <div class="container">
+                      <h2 id="lblEventModal">Edit item</h2>
+                      <!--?id,name,title,company,email,url1,url2,description, address, city,state,img1-->
+                      <!--?<form>-->
+                            <div class="form-group">
+                                  <label for="id"></label>
+                                  <input type="text" class="form-control control-width" id="id" placeholder="id">
+                            </div>
+                            <div class="form-group">
+                              <label for="headline">Headline:</label>
+                              <input type="text" class="form-control control-width" id="headline" placeholder="Enter headline">
+                            </div>
+                            <div class="form-group">
+                              <label for="fname">First Name:</label>
+                              <input type="text" class="form-control control-width" id="fname" placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                              <label for="lname">Last Name:</label>
+                              <input type="text" class="form-control control-width" id="lname" placeholder="Enter last name">
+                            </div>
+                            <div class="form-group">
+                              <label for="title">Title:</label>
+                              <input type="text" class="form-control control-width" id="title" placeholder="Enter title">
+                            </div>
+                            <div class="form-group">
+                              <label for="company">Company:</label>
+                              <input type="text" class="form-control control-width" id="company" placeholder="Enter company">
+                            </div>
+                              <div class="form-group">
+                              <label for="E-mail">E-mail:</label>
+                              <input type="text" class="form-control control-width" id="email" placeholder="Enter E-mail">
+                            </div>
+                            <div class="form-group">
+                              <label for="url1">url1 (event URL):</label>
+                              <input type="text" class="form-control control-width" id="url1" placeholder="Enter url1">
+                            </div>
+                            <div class="form-group">
+                              <label for="url2">url2:</label>
+                              <input type="text" class="form-control control-width" id="url2" placeholder="Enter url2">
+                            </div>
+                            <div class="form-group">
+                              <label for="description">description:</label>
+                              <input type="text" class="form-control control-width" id="description" placeholder="Enter description">
+                            </div>
+                            <div class="form-group">
+                              <label for="address">address:</label>
+                              <input type="text" class="form-control control-width" id="address" placeholder="Enter address">
+                            </div>
+                            <div class="form-group">
+                              <label for="city">city:</label>
+                              <input type="text" class="form-control control-width" id="city" placeholder="Enter city">
+                            </div>
+                            <div class="form-group">
+                              <label for="state">state:</label>
+                              <input type="text" class="form-control control-width" id="state" placeholder="Enter state">
+                            </div>
+                            <div class="form-group">
+                              <label for="interview">interview1:</label>
+                              <input type="text" class="form-control control-width control-height" id="interview" placeholder="Enter inteview">
+                            </div>
+                            <!--?<div class="form-group">-->
+                                <!--?<label for="interview">interview:</label>-->
+                                <!--?<br>-->
+                                <!--?<textarea style="width:250px;height:150px;" class="form-control control-width"  id="interview">-->
+                                <!--?Enter interview1-->
+                                <!--?</textarea>-->
+                            <!--?</div>-->
+                            <!--?<div class="form-group">-->
+                              <!--?<label for="img1a">img1a:</label>-->
+                              <!--?<input type="text" class="form-control control-width" id="img1a" placeholder="Enter img1">-->
+                            <!--?</div>-->
+                            <!--?<div class="checkbox">-->
+                              <!--?<label><input type="checkbox"> Remember me</label>-->
+                            <!--?</div>-->
+                            <button id="btnWrite" type="button" class="btn btn-default" onclick="UpdatePeople()">Update</button>
+                            <!--?<button type="submit" class="btn btn-default">Submit</button>-->
+                      <!--?</form>-->
+                  </div>
+              </div>
+
+            </div>
+            <div id="imgModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" onclick="closeImgModal()">&times;</span>
+                <!--?<p>Some text in the Modal..</p>-->
+
+                  <div class="container">
+                      <h2 id="lblImgModal">Edit image</h2>
+
+                        <!--?<div class="col-sm-8 text-left">-->
+                          <h3>File Upload</h3>
+                            <form action="/store_img3_view" method="post" accept-charset="utf-8"
+                                  enctype="multipart/form-data">
+                                <input type="text" class="form-control control-width" id="img_id" name="img_id" placeholder="id">
+
+                                <label for="img1">image file</label>
+                                <input id="img1" name="img1" type="file" value="" />
+                                <br>
+                                <input type="submit" value="submit" class="btn btn-default" />
+                            </form>
+
+
+                        <!--?</div>-->
+                  </div>
+              </div>
+
+            </div>
+
+            <div id="doc1Modal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close" onclick="closeDoc1Modal()">&times;</span>
+                <!--?<p>Some text in the Modal..</p>-->
+
+                  <div class="container">
+                      <h2 id="lblDoc1Modal">Edit document</h2>
+
+                        <!--?<div class="col-sm-8 text-left">-->
+                          <h3>Document Upload</h3>
+                            <form action="/store_doc1_view" method="post" accept-charset="utf-8"
+                                  enctype="multipart/form-data">
+                                <input type="text" class="form-control control-width" id="doc1_id" name="doc1_id" placeholder="id">
+
+                                <label for="img1">document file</label>
+                                <input id="doc1" name="doc1" type="file" value="" />
+                                <br>
+                                <input type="submit" value="submit" class="btn btn-default" />
+                            </form>
+
+
+                        <!--?</div>-->
+                  </div>
+              </div>
+
+            </div>
+        </div>
+        <div id="div2" name="div2" class="col-sm-12 text-right" style="background-color: white; align-content:right">
+            <button id="myBtnOpenAdd" hidden="true" title="Create a new Person"  onclick="OpenForAdd()">+</button>
+        </div>
+        <div id="div1" name="div1" style="background-color: green"></div>
+
+    </div>
+    <div class="col-sm-2 sidenav">
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+      <!--?<div class="well">-->
+        <!--?<p>ADS</p>-->
+      <!--?</div>-->
+    </div>
+  </div>
+</div>
+
+
+
+<div id="includedFooter"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#includedHeader").load("iMiiMasterHeader1");
+        });
+
+        $(document).ready(function(){
+            $("#includedFooter").load("iMiiMasterFooter1");
+        });
+
+        // $(document).ready(function(){
+        //     $("#includedHeader").load("static/iMiiMasterHeader.html");
+        // });
+        //
+        //
+        // $(document).ready(function(){
+        //     $("#includedFooter").load("static/iMii_master_footer.html");
+        // });
+
+
+        // function getUrlBase() {
+        //     return 'http://localhost:6543/';
+        //     //return 'http://www.dev1.proto21.com/';
+        //
+        // }
+
+        function OpenForEditImage(_id) {
+            var modal = document.getElementById('imgModal');
+            var loc_id = document.getElementById('img_id');
+            loc_id.value = _id.toString();
+            loc_id.style.display = "none";
+
+            modal.style.display = "block";
+        }
+
+        function OpenForEditDoc1(_id) {
+            var modal = document.getElementById('doc1Modal');
+            var loc_id = document.getElementById('doc1_id');
+            loc_id.value = _id.toString();
+            loc_id.style.display = "none";
+
+            modal.style.display = "block";
+        }
+
+        function OpenForEdit(_id,_headline,_fname,_lname,_title,_company,_email,_url1,_url2,_description,_address,_city,_state,_img1) {
+            //id,name,title,company,email,url1,url2,description, address, city,state,img1
+
+            var modal = document.getElementById('myModal');
+
+            // var lblEventModal = document.getElementById('lblEventModal');
+            // lblEventModal.innerHTML = 'Edit Event';
+
+            var loc_id = document.getElementById('id');
+            loc_id.value = _id.toString();
+            if (loc_id) {loc_id.style.display = 'none'};
+
+            var headline = document.getElementById('headline');
+            headline.value = _headline;
+            //
+            // var event_date = document.getElementById('event_date');
+            // event_date.value = _event_date;
+            //
+            // var description = document.getElementById('description');
+            // description.value = _description;
+
+
+            //headline.innerHTML = headline;
+            //var content = document.getElementById('headline');
+
+
+
+            var fname = document.getElementById('fname');
+            fname.value = _fname;
+
+
+            var lname = document.getElementById('lname');
+            lname.value = _lname;
+
+            var title = document.getElementById('title');
+            title.value = _title;
+
+            var company = document.getElementById('company');
+            company.value = _company;
+
+            // var location = document.getElementById('location');
+            // location = _location;
+
+            var url1 = document.getElementById('url1');
+            url1.value = _url1;
+
+            var url2 = document.getElementById('url2');
+            url2.value = _url2;
+
+            var description = document.getElementById('description');
+            description.value  = _description;
+
+            var address = document.getElementById('address');
+            address.value = _address;
+
+            var city = document.getElementById('city');
+            city.value = _city;
+
+            var state = document.getElementById('state');
+            state.value = _state;
+
+            var img1 = document.getElementById('img1');
+            // img1.value = _img1;
+
+            modal.style.display = "block";
+
+        }
+
+        function OpenForAdd() {
+            //id, headline,img_url,event_date,description,event_url
+            // var modal = document.getElementById('myModal');
+            //
+            // //alert('add');
+            //
+            var lblEventModal = document.getElementById('lblEventModal');
+            lblEventModal.innerHTML = 'Add Person';
+            //
+            var loc_id = document.getElementById('id');
+            //loc_id.value = _id.toString();
+            if (loc_id) {loc_id.style.display = 'none'};
+            //
+            // var txtheadline = document.getElementById('headline');
+            // txtheadline.value = '';
+            //
+            // var img_url = "aTeacherImage.jpg";
+            //
+            // var txtevent_date = document.getElementById('event_date');
+            // txtevent_date.value = '';
+            //
+            // var txtlocation = document.getElementById('location');
+            // txtlocation.value = "";
+            //
+            // var txtdescription = document.getElementById('description');
+            // txtdescription.value = "";
+            //
+            //
+            // event_url = 'www.esri.com';
+            var myModalButton = document.getElementById('btnWrite');
+            // // myModalButton.setAttribute('onclick', "OpenForAdd('" + "'" + headline +"',"
+            // //                                                     + "'" + img_url + "',"
+            // //                                                     + "'" + location + "',"
+            // //                                                     + "'" + event_date +"',"
+            // //                                                     + "'" + description+ "',"
+            // //                                                     + "'" + event_url +"'"
+            // //                                                     + ")");
+            //
+             myModalButton.setAttribute('onclick', "CreatePeople()");
+
+            modal.style.display = "block";
+
+        }
+
+        function CreatePeople() {
+            //alert('CreateNewsAndEvents');
+            var aPerson = '{' +
+                            '"headline": "' + document.getElementById("headline").value + '",' +
+                            '"fname": "' + document.getElementById("fname").value + '",' +
+                            '"lname": "' + document.getElementById("lname").value + '",' +
+                            '"title": "' + document.getElementById("title").value + '",' +
+                            '"company": "' + document.getElementById("company").value + '",' +
+                            '"email": "' + document.getElementById("email").value + '",' +
+                            '"url1": "' + document.getElementById("url1").value + '",' +
+                            '"url2": "' + document.getElementById("url2").value + '",' +
+                            '"description": "' + document.getElementById("description").value + '",' +
+                            '"address": "' + document.getElementById("address").value + '",' +
+                            '"city": "' + document.getElementById("city").value + '",' +
+                            '"state": "' + document.getElementById("state").value + '",' +
+                            '"interviewed": "yes",' +
+                            '"img1": "' + document.getElementById("img1").value +
+                '"}';
+
+        // "headline": "STEM Day 2018",
+        // "event_date": "2017-08-07",
+        // "description": " careers in earth sciences",
+        // "url": " www.stem.org"
+
+            //alert(aPerson);
+            //alert(getUrlBase() + "api/events");
+            $.ajax({
+                url: getUrlBase() + "api/people",
+                type: "POST",
+                //data: "{'editOptions':'" + aUnduplicatedUsers + "'}",
+                data: aPerson,
+                //Host: localhost:6543,
+                //Cache-Control: no-cache
+                //dataType: "json",
+                //contentType: "application/json; charset=utf-8",
+
+                beforeSend: function () {
+                    //turnBothOff("UnduplicatedUsersSuccessResult", "UnduplicatedUsersErrorResult");
+                    //SetBusy();
+                },
+
+                success: function (response) {
+                    //SetNotBusy();
+                    //alert('success called');
+                    // if (response === "True") {
+                    //     //refresh the screen
+                    //     //SiteChanged();
+                    //
+                    //     if (anumber1 != anumber2) {
+                    //         setMessageDivVisibility("UnduplicatedUsersErrorInSummation");
+                    //     } else {
+                    //         setMessageDivVisibility("UnduplicatedUsersSuccessResult");
+                    //     }
+                    // } else {
+                    //     setMessageDivVisibility("UnduplicatedUsersErrorResult");
+                    // }
+
+                    modal.style.display = "none";
+                    resetBtnURL('btnWomenInMining','WomenInMining','true')
+                },
+                error: function (xhr) {
+                    alert("error: " + xhr.responseText);
+                }
+            });
+
+
+        }
+
+        function UpdatePeople() {
+            var modal = document.getElementById('myModal');
+            var loc_id = document.getElementById('id').value ;
+
+            //loc_id.value = _id.toString();
+            var headline = document.getElementById('headline');
+            //headline.value = _headline;
+
+            var date = document.getElementById('event_date');
+            //date.value = _event_date;
+
+            var description = document.getElementById('description');
+
+            <!--?id,name,title,company,email,url1,url2,description, address, city,state,img1-->
+            var aPerson = '{' +
+                            '"headline": "' + document.getElementById("headline").value + '",' +
+                            '"fname": "' + document.getElementById("fname").value + '",' +
+                            '"lname": "' + document.getElementById("lname").value + '",' +
+                            '"title": "' + document.getElementById("title").value + '",' +
+                            '"company": "' + document.getElementById("company").value + '",' +
+                            '"email": "' + document.getElementById("email").value + '",' +
+                            '"url1": "' + document.getElementById("url1").value + '",' +
+                            '"url2": "' + document.getElementById("url2").value + '",' +
+                            '"description": "' + document.getElementById("description").value + '",' +
+                            '"address": "' + document.getElementById("address").value + '",' +
+                            '"city": "' + document.getElementById("city").value + '",' +
+                            '"state": "' + document.getElementById("state").value + '",' +
+                            '"img1": "' + document.getElementById("img1").value + '",' +
+                    '"interview": "' + document.getElementById("interview").value + '",' +
+                            '"id": "' + document.getElementById("id").value +
+                '"}';
+
+            alert(aPerson);
+            //alert(getUrlBase() + "api/event/" + loc_id);
+            $.ajax({
+                url: getUrlBase() + "api/person/" + loc_id,
+                type: "PUT",
+                //data: "{'editOptions':'" + aUnduplicatedUsers + "'}",
+                data: aPerson,
+                //Host: localhost:6543,
+                //Cache-Control: no-cache
+                //dataType: "json",
+                //contentType: "application/json; charset=utf-8",
+
+                beforeSend: function () {
+                    //turnBothOff("UnduplicatedUsersSuccessResult", "UnduplicatedUsersErrorResult");
+                    //SetBusy();
+                },
+
+                success: function (response) {
+                    //SetNotBusy();
+                    //alert('success');
+                    // if (response === "True") {
+                    //     //refresh the screen
+                    //     //SiteChanged();
+                    //
+                    //     if (anumber1 != anumber2) {
+                    //         setMessageDivVisibility("UnduplicatedUsersErrorInSummation");
+                    //     } else {
+                    //         setMessageDivVisibility("UnduplicatedUsersSuccessResult");
+                    //     }
+                    // } else {
+                    //     setMessageDivVisibility("UnduplicatedUsersErrorResult");
+                    // }
+
+                    modal.style.display = "none";
+                    resetBtnURL('btnWomenInMining','WomenInMining','true')
+                },
+                error: function (xhr) {
+                    alert("ERROR");
+                }
+            });
+        }
+
+        function populateTablesPeople() {
+                //alert('here');
+                // var grid = jQuery("#Grid_People").jqGrid({
+                //     datatype: "json",
+                //     contentType: "application/json",
+                //     width: 1200,
+                //     scrollerbar: true,
+                //     height: 500,
+                //     colNames: ['fname', 'lname'],
+                //     colModel: [
+                //             { name: 'fname', index: 'fname', width: 40 },
+                //             { name: 'lname', index: 'lname', width: 40 }
+                //
+                //     ],
+                //     multiselect: false,
+                //     caption: "TSGrid_People"
+                // });
+
+                //alert(getUrlBase() + "api/people");
+
+
+               // validate the user
+                var q = getParams1(window.location.href);
+                if (q) {
+                    userid = q['k'];
+                } else {
+                    userid = "";
+                }
+                //alert('userid: ' + userid);
+
+                if (userid) {
+                    var myBtnOpenAdd = document.getElementById('myBtnOpenAdd');
+                    myBtnOpenAdd.style.display = "block";
+                } else {
+                    userid = 'none';
+                }
+                //  if (userid.trim() == 'NONE' || userid.trim() == 'undefined') {
+
+
+                $.ajax({
+                    type: "GET",
+                    url: getUrlBase() + "api/people/yes",
+                    contentType: "application/json",
+                    dataType: "json",
+
+                    beforeSend: function () {
+                        //$('#Grid_People').jqGrid('clearGridData');
+                        //SetBusy();
+                    },
+
+                    success: function (data) {
+                        // //SetNotBusy();
+                        var jsonObj = data;
+                        var iLength = jsonObj.length;
+                        var id = jsonObj.id;
+                        //var id2 = jsonObj[0]['id'];
+                        var fname="Debra";
+                        var lname="Debra";
+                        var title="her title";
+                        var company= "her company";
+                        var position= "her position";
+                        var email = "her email";
+                        var url1 = "her url1";
+                        var url2 = "her url2";
+                        var description="Lorem ipsum dolor sit amet, consectetur adipisci.";
+                        var address="her address";
+                        var city="her city";
+                        var state="her state";
+                        var img_url='http://gis.podassoc.com/iMii_images/deb_shewfelt.png';
+
+                        var event_date = '1/1/2029';
+                        var event_name = 'the event name';
+                        var event_url = 'www.respec.com';
+                        if (jsonObj.id) {
+                            var doc_url = getUrlBase() + 'docs/' + jsonObj.id;
+                        } else {
+                            var doc_url = '';
+                        }
+
+                        //var userid = '';
+
+
+                        if (iLength) {
+                            for (var i = 0; i <= data.length; i++) {
+                                //jQuery("#Grid_People").jqGrid('addRowData', i + 1, jsonObj[i]);
+                                if (jsonObj[i]) {
+                                    id = jsonObj[i]['id'];
+                                    event_name = jsonObj[i]['headline'];
+                                    fname = jsonObj[i]['fname'];
+                                    lname = jsonObj[i]['lname'];
+                                    title = jsonObj[i]['title'];
+                                    company = jsonObj[i]['company'];
+                                    position = jsonObj[i]['position'];
+                                    email = jsonObj[i]['email'];
+                                    event_url = jsonObj[i]['url1'];
+                                    url2 = jsonObj[i]['url2'];
+                                    description = jsonObj[i]['description'];
+                                    address = jsonObj[i]['address'];
+                                    city = jsonObj[i]['city'];
+                                    state = jsonObj[i]['state'];
+                                    img_url = getUrlBase() + "images/" + jsonObj[i]['img1'];
+                                    if (jsonObj[i]['doc1']) {
+                                        doc_url = getUrlBase() + "docs/" + jsonObj[i]['doc1'];
+                                    } else {
+                                        doc_url = '';
+                                    }
+
+                                    //console.log(aval)
+                                    //generatePeopleDiv(id,fname,lname,title,company,email,url1,url2,description, address, city,state,img1,userid);
+                                    generateEventsDiv(id, event_name, img_url, event_date, description, event_url,doc_url, userid);
+                                    //alert(jsonObj[i])
+                                }
+                            }
+
+
+                        } else {
+                            //id = jsonObj[i]['id'];
+                            //generatePeopleDiv(id,fname,lname,title,company,email,url1,url2,description, address, city,state,img1);
+                                generateEventsDiv(id,event_name,img_url,event_date,description,event_url,doc_url, userid);
+                        }
+
+                        // var jsonObj = data;
+                        // var q = jsonObj.length;
+                        // var t = jsonObj.count;
+                        // var d = jsonObj.description;
+                        // var id = jsonObj.id;
+                        // var event_name=jsonObj.headline;
+                        // var img_url = getUrlBase() + jsonObj.img1;    //   http://gis.podassoc.com/iMii_images/stem1.png";
+                        // var event_date= jsonObj.event_date;
+                        // var description =  jsonObj.description;
+                        // var event_url= jsonObj.url;
+                        //
+                        //
+                        //
+                        //     generateEventsDiv(id,event_name,img_url,event_date,description,event_url,userid);
+                    },
+                    loadComplete: function () {
+                        //$("#Grid_People").jqGrid('setGridWidth', $(window).width(), true);
+                    },
+
+                    error: function (err) {
+                        //$.unblockUI();
+                        //SetNotBusy();
+                        alert("Error loading the grid:" + err.status + "    " + err.statusText);
+                    }
+                });
+            }
+
+
+        function generateEventsDiv(id, headline,img_url,event_date,description,event_url,doc_url,userid) {
+
+
+            // grab the main container
+            var div1 = document.getElementById("div1");
+            // div1.className = "container-fluid text-center";
+            //
+            // var div1a = document.createElement("div")
+            // div1a.className = "row content\"";
+
+            // create an inner-div
+            var innerDiv1 = document.createElement("div")
+            innerDiv1.className = "col-sm-4 col-xs-12";
+
+            var innerDiv1a = document.createElement("div")
+            innerDiv1a.className="panel panel-default text-center"
+
+            var innerDiv1b_a = document.createElement("div")
+            //innerDiv1b.className="panel-heading"
+            innerDiv1b_a.className="row1a text-center";//"row1a"
+
+            var innerDiv1b = document.createElement("div")
+            innerDiv1b.className="panel-heading"
+            //innerDiv1b.className="row1a text-center";//"row1a"
+            var text1b = document.createElement("text")
+            text1b.innerHTML = headline;
+            innerDiv1b.appendChild(text1b);
+
+            // create the EDIT button
+            var innerDiv1button = document.createElement("button")
+            innerDiv1button.setAttribute('id','ttt')
+            innerDiv1button.setAttribute('content', 'test content');
+            innerDiv1button.setAttribute('class', 'btn');
+            innerDiv1button.innerHTML = 'edit';
+
+            //items to pass:   id, headline,img_url,event_date,description,event_url
+            //items to pass:   _id,_fname,_lname,_title,_company,_email,_url1,_url2,_description,_address,_city,_state,_img1) {
+
+            // innerDiv1button.setAttribute('onclick', "OpenForEdit('" + id.toString() + "',"
+            //                                                     + "'" + headline + "',"
+            //                                                     + "'" + img_url + "',"
+            //                                                     + "'" + event_date + "',"
+            //                                                     + "'" + description + "',"
+            //                                                     + "'" + event_url + "'"
+            //                                                     + ")");
+            var fname = 'not collected';
+            var lname = 'not collected';
+            var title = 'not collected';
+            var company = 'not collected';
+            var email = 'not collected';
+            var url1 = event_url;
+            var url2 = 'not collected';
+            var address = 'not collected';
+            var city = 'not collected';
+            var state = 'not collected';
+            innerDiv1button.setAttribute('onclick', "OpenForEdit('" + id.toString() + "',"
+                                                                    + "'" + headline + "',"
+                                                                    + "'" + fname + "',"
+                                                                    + "'" + lname + "',"
+                                                                    + "'" + title + "',"
+                                                                    + "'" + company + "',"
+                                                                    + "'" + email + "',"
+                                                                    + "'" + url1 + "',"
+                                                                    + "'" + url2 + "',"
+                                                                    + "'" + description + "',"
+                                                                    + "'" + address + "',"
+                                                                    + "'" + city + "',"
+                                                                    + "'" + state + "',"
+                                                                    + "'" + img_url + "',"
+                                                                    + "'" + doc_url + "'"
+                                                                    + ")");
+            if(userid){
+                if((userid.trim()=="none")||(userid.trim()=="undefined")){
+
+                } else {
+                    innerDiv1b_a.appendChild(innerDiv1button);
+
+                    var myBtnOpenAdd = document.getElementById('myBtnOpenAdd');
+                    myBtnOpenAdd.style.display = "block";
+                }
+
+            } else {
+
+            }
+
+            var innerDiv1buttonImg = document.createElement("button");
+            innerDiv1buttonImg.setAttribute('id','ttt');
+            innerDiv1buttonImg.setAttribute('content', 'test content');
+            innerDiv1buttonImg.setAttribute('class', 'btn');
+            innerDiv1buttonImg.innerHTML = 'image';
+
+            innerDiv1buttonImg.setAttribute('onclick', "OpenForEditImage('" + id.toString() + "'"
+                                                                + ")");
+
+
+            if(userid) {
+
+                if((userid.trim()=="none")||(userid.trim()=="undefined")){
+
+                } else {
+                    innerDiv1b_a.appendChild(innerDiv1buttonImg);
+                }
+            } else {
+
+            }
+
+            var innerDiv1buttonDoc1 = document.createElement("button");
+            innerDiv1buttonDoc1.setAttribute('id','ttt');
+            innerDiv1buttonDoc1.setAttribute('content', 'test content');
+            innerDiv1buttonDoc1.setAttribute('class', 'btn');
+            innerDiv1buttonDoc1.innerHTML = 'document';
+
+            innerDiv1buttonDoc1.setAttribute('onclick', "OpenForEditDoc1('" + id.toString() + "'"
+                                                                + ")");
+
+
+            if(userid) {
+
+                if((userid.trim()=="none")||(userid.trim()=="undefined")){
+
+                } else {
+                    innerDiv1b_a.appendChild(innerDiv1buttonDoc1);
+                }
+            } else {
+
+            }
+
+            var innerDiv1c = document.createElement("div")
+            innerDiv1c.className="column"
+            //var text1c = document.createElement("img")
+            var text1c = document.createElement("img")
+            text1c.className="img1";
+            text1c.src = img_url;
+            innerDiv1c.appendChild(text1c)
+
+            var innerDiv1cc = document.createElement("div")
+            innerDiv1cc.className="column"
+            var text1cc = document.createElement("text")
+            text1cc.innerHTML = event_date;
+            innerDiv1cc.appendChild(text1cc)
+
+            var innerDiv1d = document.createElement("div")
+            innerDiv1c.className="panel-body";
+            var innerDiv1dText = document.createElement("button")
+            //innerDiv1dText.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
+            // <button class="btn btn-lg">READ MORE</button>
+            var innerDiv1dText = document.createElement("text")
+            innerDiv1dText.innerHTML = description;
+            innerDiv1d.appendChild(innerDiv1dText)
+
+
+            var innerDiv1e = document.createElement("div")
+            innerDiv1c.className="panel-footer"
+            var innerDiv1eButton = document.createElement("button")
+            innerDiv1eButton.className="btn btn-lg";
+            innerDiv1eButton.innerText = "go"//goo
+            innerDiv1eButton.setAttribute('onclick', "location.href = 'http://" + event_url + "';");
+            innerDiv1eButton.setAttribute('target', "_blank");
+
+
+
+            if (event_url) {
+                var innerDiv1eAnchor = document.createElement("a")
+                //innerDiv1eAnchor.className="btn btn-lg";
+                innerDiv1eAnchor.innerText = "GO"
+                innerDiv1eAnchor.setAttribute('href', "http://" + event_url + "");
+                innerDiv1eAnchor.setAttribute('target', "_blank");
+                if (event_url != '') {
+                    innerDiv1e.appendChild(innerDiv1eAnchor);
+                } else {
+                    innerDiv1eAnchor.setAttribute('style:display', "none");
+                }
+            }
+
+
+            var innerDiv1f = document.createElement("div")
+            innerDiv1f.className="panel-footer"
+            var innerDiv1fButton = document.createElement("button")
+            innerDiv1fButton.className="btn btn-lg";
+            innerDiv1fButton.innerText = "go2";
+            innerDiv1fButton.setAttribute('onclick', "location.href = 'http://" + event_url + "';");
+            innerDiv1fButton.setAttribute('target', "_blank");
+
+            if (doc_url) {
+                var innerDiv1fAnchor = document.createElement("a")
+                //innerDiv1eAnchor.className="btn btn-lg";
+                innerDiv1fAnchor.innerText = "Download Document"
+                // innerDiv1fAnchor.setAttribute('href', "http://" + doc_url + "");
+                innerDiv1fAnchor.setAttribute('href', doc_url);
+                innerDiv1fAnchor.setAttribute('target', "_blank");
+                if (doc_url != '') {
+                    innerDiv1f.appendChild(innerDiv1fAnchor);
+                } else {
+                    innerDiv1fAnchor.setAttribute('style:display', "none");
+                }
+            }
+
+            div1.appendChild(innerDiv1)
+            innerDiv1.appendChild(innerDiv1a)
+            innerDiv1a.appendChild(innerDiv1b_a)
+            innerDiv1a.appendChild(innerDiv1b)
+            innerDiv1a.appendChild(innerDiv1c)
+            innerDiv1a.appendChild(innerDiv1cc)
+            innerDiv1a.appendChild(innerDiv1d)
+            innerDiv1a.appendChild(innerDiv1e)
+            innerDiv1a.appendChild(innerDiv1f)
+
+        }
+
+        function generatePeopleDiv(id,fname,lname, title,company,email,url1,url2,description, address, city,state,img1,userid) {
+
+                // grab the main container
+                var div1 = document.getElementById("div1");
+
+                // create an inner-div
+                var innerDiv1 = document.createElement("div");
+                innerDiv1.className = "outer";
+
+
+                var innerDiv1a = document.createElement("div");
+                innerDiv1a.className="row1a text-center";//"row1a"
+
+                var innerDiv2a = document.createElement("div");
+                innerDiv2a.className="row1";
+                var text2a = document.createElement("text");
+                text2a.innerHTML = fname + " " + lname;
+                innerDiv2a.appendChild(text2a);
+
+                var innerDiv2b = document.createElement("div");
+                innerDiv2b.className="row1";
+                var text2b = document.createElement("text");
+                text2b.innerHTML = company;
+                innerDiv2b.appendChild(text2b);
+
+                var innerDiv2c = document.createElement("div");
+                innerDiv2c.className="row1";
+                var text2c = document.createElement("text");
+                text2c.innerHTML = email;
+                innerDiv2c.appendChild(text2c);
+
+                var innerDiv2d = document.createElement("div");
+                innerDiv2d.className="row1";
+                var text2d = document.createElement("text");
+                text2d.innerHTML = url1;
+                innerDiv2d.appendChild(text2d);
+
+                var innerDiv2e = document.createElement("div");
+                innerDiv2e.className="row1";
+                var text2e = document.createElement("text");
+                text2e.innerHTML = url2;
+                innerDiv2e.appendChild(text2e);
+
+                var innerDiv2f = document.createElement("div");
+                innerDiv2f.className="row1 desc";
+                var text2f = document.createElement("text");
+                text2f.innerHTML = description;
+                innerDiv2f.appendChild(text2f);
+
+                // var innerDiv2g = document.createElement("div")
+                // innerDiv2g.className="row1"
+                // var text2g = document.createElement("text")
+                // text2g.innerHTML = "text2g";
+                // innerDiv2g.appendChild(text2g)
+
+
+                // create the EDIT button
+                var innerDiv1button = document.createElement("button");
+                innerDiv1button.setAttribute('id','ttt');
+                innerDiv1button.setAttribute('content', 'test content');
+                innerDiv1button.setAttribute('class', 'btn');
+                innerDiv1button.innerHTML = 'edit';
+
+
+
+                //items to pass:   id,name,title,company,email,url1,url2,description, address, city,state,img1
+                var sID = "";
+                if (id) {sID = id.toString()}
+                innerDiv1button.setAttribute('onclick', "OpenForEdit('" + sID + "',"
+                                                                    + "'" + fname + "',"
+                                                                    + "'" + lname + "',"
+                                                                    + "'" + title + "',"
+                                                                    + "'" + company + "',"
+                                                                    + "'" + email + "',"
+                                                                    + "'" + url1 + "',"
+                                                                    + "'" + url2 + "',"
+                                                                    + "'" + description + "',"
+                                                                    + "'" + address + "',"
+                                                                    + "'" + city + "',"
+                                                                    + "'" + state + "',"
+                                                                    + "'" + img1 + "'"
+                                                                    + ")");
+
+                if (userid) {
+                    if ((userid.trim() == "none") || (userid.trim() ==  "undefined")) {
+
+                    } else {
+                        innerDiv1a.appendChild(innerDiv1button);
+                    }
+                } else {
+
+                }
+
+                var innerDiv1buttonImg = document.createElement("button");
+                innerDiv1buttonImg.setAttribute('id','ttt');
+                innerDiv1buttonImg.setAttribute('content', 'test content');
+                innerDiv1buttonImg.setAttribute('class', 'btn');
+                innerDiv1buttonImg.innerHTML = 'image';
+
+                innerDiv1buttonImg.setAttribute('onclick', "OpenForEditImage('" + sID + "'"
+                                                                    + ")");
+
+                if (userid) {
+                    if ((userid.trim() == "none") || (userid.trim() == "undefined")) {
+
+                    } else {
+                        innerDiv1a.appendChild(innerDiv1buttonImg);
+
+                        var myBtnOpenAdd = document.getElementById('myBtnOpenAdd');
+                        myBtnOpenAdd.style.display = "block";
+                    }
+                } else {
+
+                }
+
+                var innerDiv3 = document.createElement("div")
+                innerDiv3.className="column yy"
+
+                var oImg = document.createElement("img");
+                // oImg.setAttribute('src', 'http://gis.podassoc.com/iMii_images/deb_shewfelt.png');
+                oImg.setAttribute('src', img1);
+                oImg.className='id3';
+
+                innerDiv3.appendChild(oImg)
+
+                innerDiv1.appendChild(innerDiv3)
+                innerDiv1.appendChild(innerDiv1a)
+                innerDiv1.appendChild(innerDiv2a)
+                innerDiv1.appendChild(innerDiv2b)
+                innerDiv1.appendChild(innerDiv2c)
+                innerDiv1.appendChild(innerDiv2d)
+                innerDiv1.appendChild(innerDiv2e)
+                innerDiv1.appendChild(innerDiv2f)
+                // innerDiv1.appendChild(innerDiv2g)
+
+                //
+                 div1.appendChild(innerDiv1)
+                // innerDiv2.appendChild(infoBox1)
+            }
+
+        // function getUrlBase() {
+        //     return 'http://localhost:6543/';
+        // }
+    </script>
+
+    <script>
+        function closeDoc1Modal() {
+            var doc1Modal = document.getElementById('doc1Modal');
+            doc1Modal.style.display = "none";
+        }
+
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        //var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        // btn.onclick = function() {
+        //     modal.style.display = "block";
+        // }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>iMii Mining Cycle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="scripts/common3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+      body {
+          /*font-family: Courier New;*/
+        }
+
+div#header {
+ margin: 0 auto;
+ width: 90%;
+}
+
+div.column1, div.column2 {
+ text-align: center;
+}
+
+div.column1 {
+ float: left;
+ width: 33%;
+}
+
+div.column2 {
+ float: left;
+ width: 66%;
+}
+
+      img {
+            /*max-width: 100%;*/
+            /*max-height: 100%;*/
+          height: 100px;
+          width: 200px;
+        }
+
+      /*.button {*/
+            /*background-color: red;*/
+            /*border: none;*/
+            /*color: white;*/
+            /*padding: 15px 32px;*/
+            /*text-align: center;*/
+            /*text-decoration: none;*/
+            /*display: inline-block;*/
+            /*font-size: 24px;*/
+            /*margin: 4px 2px;*/
+            /*cursor: pointer;*/
+            /*font-family: Verdana, Geneva, sans-serif;*/
+        /*}*/
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .navbtn {
+        font-size : 20px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+    /*.stickyfooter {*/
+           /*position: fixed;*/
+           /*left: 0;*/
+           /*bottom: 0;*/
+            /*height: 100px;*/
+           /*width: 100%;*/
+           /*background-color: dimgray;*/
+           /*color: white;*/
+           /*text-align: center;*/
+        /*}*/
+  </style>
+</head>
+<body>
+
+
+
+   <div id="includedHeader"></div>
+
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-6 text-left" style="padding-top: 15px; padding-bottom: 15px;">
+      <div class="row">
+                <div class="col-sm-1" style="background-color:white; color:green; height:500px; align-content: center"></div>
+                <div class="col-sm-10" style="background-color:white; color:green; height:500px; align-content: center">
+                    <img src="/graphics/Mine_Cycle_Diagram.png" alt="Picture Description" usemap="#planetmap" style="width: 500px; height: 500px; left:300px">
+                    <map name="planetmap">
+                        <!--?<area shape="circle" coords="<top left><bottom right>" alt="Mercury" href="https://www.google.com">-->
+                        <area shape="rect" id="aDiscover" style="color:green" coords="150,0,350,150" href="Discover">
+                        <area shape="rect" id="aPlan" style="color:white" coords="350,130,500,350" href="Plan">
+                        <area shape="rect" id="aMiningCycle" style="color:white" coords="150,200,300,300" href="MiningCycle">
+                        <area shape="rect" id="aMine" style="color:white" coords="170,350,330,600" href="Mine">
+                        <area shape="rect" id="aReclaim" style="color:white" coords="0,130,130,350" href="Reclaim">
+
+                        <!--?<img src="http://localhost:6543/graphics/reclaim_isolated.png" alt="Picture Description" style="width:100%">-->
+                    </map>
+
+                </div>
+                <div class="col-sm-1" style="background-color:white; color:green; height:500px; align-content: center"></div>
+            </div>
+    </div>
+    <div class="col-sm-6 text-left">
+      <h1>MINING CYCLE</h1>
+      <p>
+          The Mining Cycle Diagram is central to the Girls In The Classroom project
+and its objectives. Each of the 4 stages of the mining cycle are essential to
+a successful mining operation and will be the main focus for meaningful
+classroom interactions. Each classroom discussion will focus on one or more
+of the mining stages introducing students to the magnificent and wide-ranging
+minerals industry. For example, a geoscientist speaking to the classroom
+about the exciting discovery of a new mineral resource and making
+connections to the curriculum would fall within the Discover Mine Cycle stage.
+ <br><br><H3><strong>EXPLORE</strong></H3><br>
+Click on a stage, of the mining cycle, to find out more about the projects
+and curriculum connections made at each step of the process.
+      </p>
+      <hr>
+
+
+        <br><br><br><br><br>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="includedFooter"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#includedHeader").load("iMiiMasterHeader1");
+        });
+
+        $(document).ready(function(){
+            $("#includedFooter").load("iMiiMasterFooter1");
+        });
+
+        // $(document).ready(function(){
+        //     $("#includedHeader").load("static/iMiiMasterHeader.html");
+        // });
+        //
+        //
+        // $(document).ready(function(){
+        //     $("#includedFooter").load("static/iMii_master_footer.html");
+        // });
+
+        // function setControls() {
+        //     //resetBtnURL('aDiscover','Discover','false');
+        //     resetAnchorURL('aDiscover','Discover','false')
+        // }
+    </script>
+
+</body>
+</html>

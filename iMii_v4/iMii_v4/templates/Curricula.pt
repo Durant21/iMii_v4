@@ -1,0 +1,7 @@
+<div metal:use-macro="load: Curricula_layout.pt">
+    <div metal:fill-slot="content">
+        <div class="content">
+            Curricula page ----------------------------
+        </div>
+    </div>
+</div>
