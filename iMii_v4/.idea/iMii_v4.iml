@@ -9,11 +9,12 @@
     <option name="TEMPLATE_CONFIGURATION" value="Chameleon" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/.env/lib/python3.7/site-packages/pyramid-1.10.1-py3.7.egg/pyramid/scaffolds/zodb/+package+/templates" />
+        <option value="$MODULE_DIR$/iMii_v4/templates" />
       </list>
     </option>
   </component>
   <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+    <option name="projectConfiguration" value="py.test" />
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>
 </module>

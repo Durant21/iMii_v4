@@ -17,18 +17,18 @@
 </head>
 <body>
 <!--?.66-->
-<img src="/graphics/Slide1.PNG" alt="slide 1" width="100%">
-<img src="/graphics/Slide2.PNG" alt="slide 2" width="100%">
-<img src="/graphics/Slide3.PNG" alt="slide 3" width="100%">
+<img src="/static/graphics/Slide1.PNG" alt="slide 1" width="100%">
+<img src="/static/graphics/Slide2.PNG" alt="slide 2" width="100%">
+<img src="/static/graphics/Slide3.PNG" alt="slide 3" width="100%">
 
-<img src="/graphics/Slide4.PNG" alt="slide 4" width="100%">
+<img src="/static/graphics/Slide4.PNG" alt="slide 4" width="100%">
 
-<img src="/graphics/Slide5.PNG" alt="slide 5" width="100%">
+<img src="/static/graphics/Slide5.PNG" alt="slide 5" width="100%">
 
-<img src="/graphics/Slide6.PNG" alt="slide 6" width="100%">
-<img src="/graphics/Slide7.PNG" alt="slide 7" width="100%">
+<img src="/static/graphics/Slide6.PNG" alt="slide 6" width="100%">
+<img src="/static/graphics/Slide7.PNG" alt="slide 7" width="100%">
 
-<img src="/graphics/Slide8.PNG" alt="slide 8" width="100%">
+<img src="/static/graphics/Slide8.PNG" alt="slide 8" width="100%">
 
 </body>
 </html>
